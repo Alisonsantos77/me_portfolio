@@ -82,7 +82,7 @@ export function HeroComp() {
             </div>
             <div className="bg-muted lg:block">
                 <img
-                    src="/src/assets/img/alison-santos.png"
+                    src="/public/assets/img/alison-santos.png"
                     alt="Image"
                     width="1920"
                     height="1080"

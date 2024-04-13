@@ -30,8 +30,8 @@ export function AboutComp() {
     return (
         <div  className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
             <div id="about" className="grid grid-cols-2 gap-4 ">
-                <img id="image1" className="w-full rounded-lg brightness-100 dark:grayscale" src="/src/assets/img/about_me2.jpg" alt="image me 1" />
-                <img id="image2" className="mt-4 w-full lg:mt-10 rounded-lg brightness-100 dark:grayscale" src="/src/assets/img/about_me1.jpg" alt="image me 2" />
+                <img id="image1" className="w-full rounded-lg brightness-100 dark:grayscale" src="/public/assets/img/about_me2.jpg" alt="image me 1" />
+                <img id="image2" className="mt-4 w-full lg:mt-10 rounded-lg brightness-100 dark:grayscale" src="/public/assets/img/about_me1.jpg" alt="image me 2" />
             </div>
 
             <div id="texto-about" className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
