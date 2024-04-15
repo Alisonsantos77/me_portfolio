@@ -1,9 +1,10 @@
-// import Lottie from "lottie-react";
-// import Animabout from "@/assets/video/Animabout - 1711570574182.json";
 import { useTranslation } from "react-i18next";
 import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import  profile1  from "@/assets/img/about_me1.jpg"
+import  profile2  from "@/assets/img/about_me2.jpg"
+
 
 export function AboutComp() {
     useLayoutEffect(() => {
@@ -30,8 +31,8 @@ export function AboutComp() {
     return (
         <div  className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
             <div id="about" className="grid grid-cols-2 gap-4 ">
-                <img id="image1" className="w-full rounded-lg brightness-100 dark:grayscale" src="/public/assets/img/about_me2.jpg" alt="image me 1" />
-                <img id="image2" className="mt-4 w-full lg:mt-10 rounded-lg brightness-100 dark:grayscale" src="/public/assets/img/about_me1.jpg" alt="image me 2" />
+                <img id="image1" className="w-full rounded-lg brightness-100 dark:grayscale" src={profile2} alt="profile 2" />
+                <img id="image2" className="mt-4 w-full lg:mt-10 rounded-lg brightness-100 dark:grayscale" src={profile1} alt="profile 1" />
             </div>
 
             <div id="texto-about" className="font-light text-gray-500 sm:text-lg dark:text-gray-400">

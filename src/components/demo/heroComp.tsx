@@ -4,6 +4,7 @@ import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { PiMicrosoftOutlookLogo } from "react-icons/pi";
 import { RiWhatsappFill } from "react-icons/ri";
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import  profileHero  from "@/assets/img/alison-santos.png"
 
 export function HeroComp() {
     const { t } = useTranslation()
@@ -82,8 +83,8 @@ export function HeroComp() {
             </div>
             <div className="bg-muted lg:block">
                 <img
-                    src="/public/assets/img/alison-santos.png"
-                    alt="Image"
+                    src={profileHero}
+                    alt="profile"
                     width="1920"
                     height="1080"
                     className="h-screen w-full brightness-75 object-cover dark:brightness-[0.2] dark:grayscale"

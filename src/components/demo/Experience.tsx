@@ -4,6 +4,8 @@ import { useLayoutEffect } from "react";
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
+import dsistem from "@/assets/video/dsistem.mp4"
+import sharepin from "@/assets/video/sharepin_front.mp4"
 
 export function Experience() {
     const { t } = useTranslation()
@@ -37,7 +39,7 @@ export function Experience() {
                 <div id="#experience" className="flex flex-wrap -mx-4 -mb-10 text-center">
                     <div id="exp-item" className="sm:w-1/2 mb-10 px-4">
                         <div className="rounded-lg h-96 overflow-hidden">
-                            <video src="/public/assets/video/dsistem.mp4" autoPlay controls muted className="object-cover object-center h-full w-full"></video>
+                            <video src={dsistem} autoPlay controls muted className="object-cover object-center h-full w-full"></video>
 
                         </div>
                         <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mt-6 mb-7">{t("titledsistem")}</h2>
@@ -68,7 +70,7 @@ export function Experience() {
                     </div>
                     <div id="exp-item" className="sm:w-1/2 mb-10 px-4">
                         <div className="rounded-lg h-96 overflow-hidden">
-                            <video src="/public/assets/video/sharepin_front.mp4" autoPlay controls muted className="object-cover object-center h-full w-full"></video>
+                            <video src={sharepin} autoPlay controls muted className="object-cover object-center h-full w-full"></video>
                         </div>
                         <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mt-6 mb-7">{t("titlesharepin")}</h2>
                         <p className="leading-relaxed text-base">{t("subsharepin")} </p>

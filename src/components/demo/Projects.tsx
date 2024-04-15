@@ -20,6 +20,17 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
+import assistente_talk from "@/assets/video/assistente_talk.mp4"
+import music_player from "@/assets/video/MusicPlayer_tk.mp4"
+import pytube from "@/assets/video/Pytube_ctk.mp4"
+import cadastro_flet from "@/assets/video/cadastro_flet.mp4"
+import calculadora_idade from "@/assets/video/calculadora_idade.mp4"
+import calculadora from "@/assets/video/calculadora_tk.mp4"
+import detector_rosto from "@/assets/video/detector_rosto.mp4"
+import handcount from "@/assets/video/handcount.mp4"
+import recognition from "@/assets/video/recognition.mp4"
+import spotipy from "@/assets/video/spotipyvid.mp4"
+import summary from "@/assets/video/summary.mp4"
 
 
 export function Projects() {
@@ -88,7 +99,7 @@ export function Projects() {
         <CarouselContent>
           <CarouselItem className="destaque" id="destaque-1">
             <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-              <video className="w-full" autoPlay muted controls src="/public/assets/video/assistente_talk.mp4" />
+              <video className="w-full" autoPlay muted controls src={assistente_talk} />
               <div className="mt-4 md:mt-0">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{t("voiceass")}</h2>
                 <p id="texto-destaque" className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">{t("subvoiceass")}</p>
@@ -118,7 +129,7 @@ export function Projects() {
             </div>
           </CarouselItem>
           <CarouselItem className="destaque" id="destaque-2"><div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-            <video className="w-full" autoPlay muted controls src="/public/assets/video/spotipyvid.mp4" />
+            <video className="w-full" autoPlay muted controls src={spotipy} />
             <div className="mt-4 md:mt-0">
               <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{t("spotify")}</h2>
               <p id="texto-destaque" className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">{t("subspotify")}</p>
@@ -149,7 +160,7 @@ export function Projects() {
           </div></CarouselItem>
           <CarouselItem className="destaque" id="destaque-3">
             <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-              <video className="w-full" autoPlay muted controls src="/public/assets/video/recognition.mp4" />
+              <video className="w-full" autoPlay muted controls src={recognition} />
             <div className="mt-4 md:mt-0">
               <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{t("facerec")}</h2>
               <p id="texto-destaque" className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">{t("subfacerec")}</p>
@@ -222,7 +233,7 @@ export function Projects() {
                       </a>
                     </div>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/calculadora_tk.mp4" />
+                  <video className="w-full" autoPlay muted controls src={calculadora} />
                 </div>
               </CarouselItem>
               <CarouselItem>
@@ -256,7 +267,7 @@ export function Projects() {
                       </a>
                     </div>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/calculadora_idade.mp4" />
+                  <video className="w-full" autoPlay muted controls src={calculadora_idade} />
                 </div>
               </CarouselItem>
             </CarouselContent>
@@ -299,7 +310,7 @@ export function Projects() {
                       </a>
                     </div>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/spotipyvid.mp4" />
+                  <video className="w-full" autoPlay muted controls src={spotipy} />
                 </div>
               </CarouselItem>
               <CarouselItem>
@@ -333,7 +344,7 @@ export function Projects() {
                       </a>
                     </div>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/MusicPlayer_tk.mp4" />
+                  <video className="w-full" autoPlay muted controls src={music_player} />
                 </div>
               </CarouselItem>
               <CarouselItem>
@@ -367,7 +378,7 @@ export function Projects() {
                       </a>
                     </div>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/Pytube_ctk.mp4" />
+                  <video className="w-full" autoPlay muted controls src={pytube} />
                 </div>
               </CarouselItem>
               <CarouselItem>
@@ -401,7 +412,7 @@ export function Projects() {
                       </a>
                     </div>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/cadastro_flet.mp4" />
+                  <video className="w-full" autoPlay muted controls src={cadastro_flet} />
                 </div>
               </CarouselItem>
               <CarouselItem>
@@ -475,7 +486,7 @@ export function Projects() {
                       </TooltipProvider>
                     </a>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/handcount.mp4" />
+                  <video className="w-full" autoPlay muted controls src={handcount} />
                 </div>
               </CarouselItem>
               <CarouselItem className="avancado" id="avancado-2">
@@ -506,7 +517,7 @@ export function Projects() {
                       </TooltipProvider>
                     </a>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/recognition.mp4" />
+                  <video className="w-full" autoPlay muted controls src={recognition} />
                 </div>
               </CarouselItem>
               <CarouselItem className="avancado" id="avancado-3">
@@ -537,7 +548,7 @@ export function Projects() {
                       </TooltipProvider>
                     </a>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/assistente_talk.mp4" />
+                  <video className="w-full" autoPlay muted controls src={assistente_talk} />
                 </div>
               </CarouselItem>
               <CarouselItem className="avancado" id="avancado-4">
@@ -568,7 +579,7 @@ export function Projects() {
                       </TooltipProvider>
                     </a>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/detector_rosto.mp4" />
+                  <video className="w-full" autoPlay muted controls src={detector_rosto} />
                 </div>
               </CarouselItem>
               <CarouselItem className="avancado" id="avancado-5">
@@ -599,7 +610,7 @@ export function Projects() {
                       </TooltipProvider>
                     </a>
                   </div>
-                  <video className="w-full" autoPlay muted controls src="/public/assets/video/summary.mp4" />
+                  <video className="w-full" autoPlay muted controls src={summary} />
                 </div>
               </CarouselItem>
             </CarouselContent>

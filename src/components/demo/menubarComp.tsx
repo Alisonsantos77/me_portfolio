@@ -16,10 +16,6 @@ import { PortugueseButton, EnglishButton } from "../language-selector"
 import { useTranslation } from "react-i18next"
 import { useHotkeys } from 'react-hotkeys-hook';
 import curriculo_dev from "@/assets/Curriculo_dev.pdf"
-// const languages = [
-//     { code: 'en', lang: 'English' },
-//     { code: 'pt', lang: 'Português' }
-// ]
 
 
 export function MenubarComp() {
@@ -48,15 +44,6 @@ export function MenubarComp() {
     });
     useHotkeys('w', () => {
         window.open('https://wa.me/5514991615904?text=Ol%C3%A1+Alison%2C+tudo+bem%3F', '_blank');
-    });
-    useHotkeys('c', () => {
-        window.open('mailto:Alisondev77@hotmail.com', '_blank');
-    });
-    useHotkeys('c', () => {
-        window.open('mailto:Alisondev77@hotmail.com', '_blank');
-    });
-    useHotkeys('c', () => {
-        window.open('mailto:Alisondev77@hotmail.com', '_blank');
     });
 
     return (
@@ -165,13 +152,13 @@ export function MenubarComp() {
                     <MenubarItem className="justify-center">
 
 
-                        <PortugueseButton /> 
+                        <PortugueseButton />
 
 
                     </MenubarItem>
                     <MenubarItem className="justify-center">
 
-                        <EnglishButton /> 
+                        <EnglishButton />
                     </MenubarItem>
                 </MenubarContent>
             </MenubarMenu>
