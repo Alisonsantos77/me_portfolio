@@ -99,7 +99,7 @@ export function Projects() {
         <CarouselContent>
           <CarouselItem className="destaque" id="destaque-1">
             <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-              <video className="w-full" muted controls src={assistente_talk} />
+              <video className="w-full" muted autoPlay controls src={assistente_talk} />
               <div className="mt-4 md:mt-0">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">{t("voiceass")}</h2>
                 <p id="texto-destaque" className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">{t("subvoiceass")}</p>
@@ -233,7 +233,7 @@ export function Projects() {
                       </a>
                     </div>
                   </div>
-                  <video className="w-full" muted controls src={calculadora} />
+                  <video className="w-full" muted autoPlay controls src={calculadora} />
                 </div>
               </CarouselItem>
               <CarouselItem>
@@ -310,7 +310,7 @@ export function Projects() {
                       </a>
                     </div>
                   </div>
-                  <video className="w-full" muted controls src={spotipy} />
+                  <video className="w-full" muted autoPlay controls src={spotipy} />
                 </div>
               </CarouselItem>
               <CarouselItem>
@@ -486,7 +486,7 @@ export function Projects() {
                       </TooltipProvider>
                     </a>
                   </div>
-                  <video className="w-full" muted controls src={handcount} />
+                  <video className="w-full" muted autoPlay controls src={handcount} />
                 </div>
               </CarouselItem>
               <CarouselItem className="avancado" id="avancado-2">
