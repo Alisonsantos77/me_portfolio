@@ -6,31 +6,26 @@ import { AboutComp } from "./components/demo/aboutComp";
 import Experience from "./components/demo/Experience";
 import Footer from "./components/demo/Footer";
 import HeroComp from "./components/demo/heroComp";
-import { DialDarkmode } from "./components/demo/DialDarkmode";
 
 
 export function App() {
 
   return (
-
-
     <div >
-      {/* Dial DarkMode */}
-      <DialDarkmode/>
-      <MenubarComp/>
+      <MenubarComp />
       {/* HERO */}
-      <HeroComp/>
+      <HeroComp />
       {/* ABOUT */}
-      <AboutComp/>
+      <AboutComp />
 
       {/* SKILLS */}
-      <Skills/>
+      <Skills />
       {/* PROJECTS */}
-<Projects/>
+      <Projects />
       {/* EXPERIENCE */}
-      <Experience/>
+      <Experience />
       {/* FOOTER */}
-      <Footer/>
+      <Footer />
     </div>
   )
 }

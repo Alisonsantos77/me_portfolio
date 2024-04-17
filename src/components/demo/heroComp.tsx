@@ -5,15 +5,18 @@ import { PiMicrosoftOutlookLogo } from "react-icons/pi";
 import { RiWhatsappFill } from "react-icons/ri";
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import  profileHero  from "@/assets/img/alison-santos.png"
-
+import SpeedDial  from "./SpeedDial";
 export function HeroComp() {
     const { t } = useTranslation()
 
 
     return (
+        <div>
 
+            {/* Dial Speed */}
+            <SpeedDial />
         <div className="h-screen w-full lg:grid lg:min-h-[300px] lg:grid-cols-2 xl:min-h-[800px]">
-            
+
             <div className="flex items-center justify-center py-12">
                 <div className="grid justify-items-center text-center">
                     <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{t("herotitle")} <TypeAnimation
@@ -94,6 +97,8 @@ export function HeroComp() {
                 />
             </div>
         </div>
+        </div>
+
     )
 }
 
