@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next"
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
-import { useLayoutEffect } from "react";
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
 import dsistem from "@/assets/video/dsistem.mp4"
 import sharepin from "@/assets/video/sharepin_front.mp4"
@@ -10,26 +7,6 @@ import sharepin from "@/assets/video/sharepin_front.mp4"
 export function Experience() {
     const { t } = useTranslation()
 
-    useLayoutEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Animação de "destaque"
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: "#experience",
-                scrub: true,
-                start: "top 1000px",
-                end: "bottom 850px"
-            }
-        })
-            .fromTo("#exp-item", { opacity: 0, y: 3000 }, { opacity: 1, y: 0 })
-
-
-        return () => {
-            // Limpeza de animações
-            gsap.killTweensOf("#experience");
-        };
-    }, []);
 
     return (
         <section className="text-gray-600 body-font">
