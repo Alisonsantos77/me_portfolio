@@ -6,6 +6,7 @@ import { AboutComp } from "./components/demo/aboutComp";
 import Experience from "./components/demo/Experience";
 import Footer from "./components/demo/Footer";
 import HeroComp from "./components/demo/heroComp";
+import { DialDarkmode } from "./components/demo/DialDarkmode";
 
 
 export function App() {
@@ -14,6 +15,8 @@ export function App() {
 
 
     <div >
+      {/* Dial DarkMode */}
+      <DialDarkmode/>
       <MenubarComp/>
       {/* HERO */}
       <HeroComp/>
