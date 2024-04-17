@@ -10,8 +10,6 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
 } from "@/components/ui/menubar"
-import { ThemeProvider } from "@/components/theme-provider"
-import { ModeToggle } from "../theme-toggle"
 import { PortugueseButton, EnglishButton } from "../language-selector"
 import { useTranslation } from "react-i18next"
 import { useHotkeys } from 'react-hotkeys-hook';
@@ -47,7 +45,7 @@ export function MenubarComp() {
     });
 
     return (
-        <Menubar className="justify-center">
+        <Menubar className="w-full sm:justify-center">
             <MenubarMenu>
                 <MenubarTrigger>{t("homemenu")}</MenubarTrigger>
                 <MenubarContent>
@@ -92,34 +90,11 @@ export function MenubarComp() {
                 </MenubarContent>
             </MenubarMenu>
             <MenubarMenu>
-                <a href="#about" >
-                    <MenubarTrigger> {t("aboutmenu")}
-                    </MenubarTrigger>
-                </a>
-            </MenubarMenu>
-            <MenubarMenu>
                 <a href="#Skills" >
                     <MenubarTrigger>
                         Skills
                     </MenubarTrigger>
                 </a>
-                {/* <MenubarContent>
-                    <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-                    <MenubarCheckboxItem checked>
-                        Always Show Full URLs
-                    </MenubarCheckboxItem>
-                    <MenubarSeparator />
-                    <MenubarItem inset>
-                        Reload <MenubarShortcut>⌘R</MenubarShortcut>
-                    </MenubarItem>
-                    <MenubarItem disabled inset>
-                        Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-                    </MenubarItem>
-                    <MenubarSeparator />
-                    <MenubarItem inset>Toggle Fullscreen</MenubarItem>
-                    <MenubarSeparator />
-                    <MenubarItem inset>Hide Sidebar</MenubarItem>
-                </MenubarContent> */}
             </MenubarMenu>
             <MenubarMenu>
                 <a href="#Projetos" >
@@ -127,17 +102,6 @@ export function MenubarComp() {
                         {t("projectsmenu")}
                     </MenubarTrigger>
                 </a>
-                {/* <MenubarContent>
-                    <MenubarRadioGroup value="benoit">
-                        <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-                        <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-                        <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
-                    </MenubarRadioGroup>
-                    <MenubarSeparator />
-                    <MenubarItem inset>Edit...</MenubarItem>
-                    <MenubarSeparator />
-                    <MenubarItem inset>Add Profile...</MenubarItem>
-                </MenubarContent> */}
             </MenubarMenu>
             <MenubarMenu>
                 <a href="#Experience" >
@@ -161,13 +125,6 @@ export function MenubarComp() {
                         <EnglishButton />
                     </MenubarItem>
                 </MenubarContent>
-            </MenubarMenu>
-            <MenubarMenu>
-                <MenubarTrigger>
-                    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-                        <ModeToggle />
-                    </ThemeProvider>
-                </MenubarTrigger>
             </MenubarMenu>
         </Menubar>
     )
