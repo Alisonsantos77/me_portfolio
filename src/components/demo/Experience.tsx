@@ -32,14 +32,14 @@ export function Experience() {
     }, []);
 
     return (
-        <section id="Experience" className="text-gray-600 body-font">
+        <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
                 <h2 className="mb-10 text-4xl text-center tracking-tight font-extrabold text-gray-900 dark:text-white">Experience</h2>
 
-                <div id="#experience" className="flex flex-wrap -mx-4 -mb-10 text-center">
+                <div id="experience" className="flex flex-wrap -mx-4 -mb-10 text-center">
                     <div id="exp-item" className="sm:w-1/2 mb-10 px-4">
                         <div className="rounded-lg h-96 overflow-hidden">
-                            <video src={dsistem} autoPlay controls muted className="object-cover object-center h-full w-full"></video>
+                            <video src={dsistem} autoPlay controls muted className="object-cover object-center h-full w-full"/>
 
                         </div>
                         <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mt-6 mb-7">{t("titledsistem")}</h2>
@@ -70,7 +70,7 @@ export function Experience() {
                     </div>
                     <div id="exp-item" className="sm:w-1/2 mb-10 px-4">
                         <div className="rounded-lg h-96 overflow-hidden">
-                            <video src={sharepin} autoPlay controls muted className="object-cover object-center h-full w-full"></video>
+                            <video src={sharepin} autoPlay controls muted className="object-cover object-center h-full w-full"/>
                         </div>
                         <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mt-6 mb-7">{t("titlesharepin")}</h2>
                         <p className="leading-relaxed text-base">{t("subsharepin")} </p>

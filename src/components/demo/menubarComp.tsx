@@ -94,7 +94,7 @@ export function MenubarComp() {
                 </a>
             </MenubarMenu>
             <MenubarMenu>
-                <a href="#Experience" >
+                <a href="#experience" >
                     <MenubarTrigger>
                         {t("experiencemenu")}
                     </MenubarTrigger>
