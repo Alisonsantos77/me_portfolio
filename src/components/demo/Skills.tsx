@@ -95,28 +95,28 @@ export function Skills() {
                     <div className="models-item" id="model-1">
                         <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
 
-                            <DiPython className=" w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                            <DiPython className=" w-7  h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
                         </div>
                         <h3 className="mb-2 text-xl font-bold dark:text-white">Python</h3>
                         <p className="text-gray-500 dark:text-gray-400">{t("python")}</p>
                     </div>
                     <div className="models-item" id="model-2">
                         <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <SiDjango className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                            <SiDjango className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
                         </div>
                         <h3 className="mb-2 text-xl font-bold dark:text-white">{t("titledjango")}</h3>
                         <p className="text-gray-500 dark:text-gray-400">{t("django")}</p>
                     </div>
                     <div className="models-item" id="model-3">
                         <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <PiDesktopTowerFill className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                            <PiDesktopTowerFill className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
                         </div>
                         <h3 className="mb-2 text-xl font-bold dark:text-white">{t("titledesktop")}</h3>
                         <p className="text-gray-500 dark:text-gray-400"> {t("desktop")}</p>
                     </div>
                     <div className="models-item" id="model-4">
                         <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <FaRobot className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                            <FaRobot className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
                         </div>
                         <h3 className="mb-2 text-xl font-bold dark:text-white">Deep Learning</h3>
                         <p className="text-gray-500 dark:text-gray-400">{t("deeplearning")}</p>
@@ -124,7 +124,7 @@ export function Skills() {
                     <div className="models-item" id="model-5">
 
                         <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <FaMicrochip className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                            <FaMicrochip className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
 
                         </div>
                         <h3 className="mb-2 text-xl font-bold dark:text-white">{t("titleintegracao")}</h3>
@@ -132,7 +132,7 @@ export function Skills() {
                     </div>
                     <div className="models-item" id="model-6">
                         <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <SiTailwindcss className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                            <SiTailwindcss className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
                         </div>
                         <h3 className="mb-2 text-xl font-bold dark:text-white">Frontend (Tailwindcss)</h3>
                         <p className="text-gray-500 dark:text-gray-400">{t("frontend")}</p>
