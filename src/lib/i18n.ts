@@ -14,12 +14,14 @@ i18n
         resources: {
             pt: {
                 translation: {
-                    homemenu: "Inicio",
+                    homemenu: "Contato",
                     aboutmenu: "Sobre",
                     skillsmenu: "Habilidades",
                     projectsmenu: "Projetos",
                     experiencemenu: "Experiencia",
                     idiomamenu: "Idioma",
+                    lang1: "Português",
+                    lang2: "Inglês",
                     herotitle: "Desenvolvedor",
                     herosub: "Das ideias às soluções eficazes. Juntos, vamos criar algo excepcional. Entre em contato e vamos começar.",
                     abouttitle: "Sobre mim",
@@ -77,19 +79,24 @@ i18n
                     titledsistem: "Sistema Integrado de Vendas",
                     subweb: "Desenvolvi um sistema de gerenciamento de vendas personalizado para a Jsantos Eletrônicos. Além de recursos padrão, como registro detalhado de clientes e exportação de relatórios em PDF e CSV, implementei funcionalidades avançadas, como autenticação segura com Allauth Google e envio de e-mails personalizados. Este projeto destaca-se pela sua capacidade de simplificar e aprimorar a gestão de vendas da loja, oferecendo uma solução eficiente e adaptada às necessidades específicas do cliente.",
                     titlesharepin: "Share Pin: Organize Links e Notas",
-                    subsharepin: "Como parte de um projeto de desenvolvimento web em Flask, eu, em colaboração com o 'Matheus Gama', contribuí com o desenvolvimento do frontend, utilizando Tailwind CSS para aprimorar a interface do usuário, garantindo responsividade e uma experiência moderna. Enquanto o 'Matheus Gama' liderou o desenvolvimento do backend, que inclui recursos como autenticação de usuários, manipulação de pins (adicionar, editar, excluir), criação de listas de pins e implementação de um sistema de envio de e-mails para confirmação de contas e atualizações de senha."
-
+                    subsharepin: "Como parte de um projeto de desenvolvimento web em Flask, eu, em colaboração com o 'Matheus Gama', contribuí com o desenvolvimento do frontend, utilizando Tailwind CSS para aprimorar a interface do usuário, garantindo responsividade e uma experiência moderna. Enquanto o 'Matheus Gama' liderou o desenvolvimento do backend, que inclui recursos como autenticação de usuários, manipulação de pins (adicionar, editar, excluir), criação de listas de pins e implementação de um sistema de envio de e-mails para confirmação de contas e atualizações de senha.",
+                    dial1: "Claro",
+                    dial2: "Escuro",
+                    dial3: "Sistema",
+                    dial4: "Voltar ao inicio",
+                
                 }
             },
             en: {
                 translation: {
-                    homemenu: "Home",
+                    homemenu: "Contact",
                     aboutmenu: "About",
                     skillsmenu: "Skills",
                     projectsmenu: "Projects",
                     experiencemenu: "Experience",
                     idiomamenu: "Language",
-
+                    lang1: "Portuguese",
+                    lang2: "English",
                     herotitle: "Developer",
                     herosub: "From ideas to effective solutions. Together, we'll create something exceptional. Get in touch and let's get started.",
                     abouttitle: "About Me",
@@ -143,7 +150,12 @@ i18n
                     titledsistem: "Integrated Sales System",
                     subweb: "I developed a customized sales management system for Jsantos Eletrônicos. In addition to standard features such as detailed customer registration and exporting reports in PDF and CSV, I implemented advanced functionalities such as secure authentication with Allauth Google and sending personalized emails. This project stands out for its ability to simplify and improve the store's sales management, offering an efficient solution tailored to the client's specific needs.",
                     titlesharepin: "Share Pin: Organize Links and Notes",
-                    subsharepin: "As part of a Flask web development project, I, in collaboration with 'Matheus Gama', contributed to the development of the frontend, using Tailwind CSS to enhance the user interface, ensuring responsiveness and a modern experience. While 'Matheus Gama' led the development of the backend, which includes features such as user authentication, pin manipulation (add, edit, delete), creation of pin lists and implementation of a system for sending emails to confirm accounts and password updates."
+                    subsharepin: "As part of a Flask web development project, I, in collaboration with 'Matheus Gama', contributed to the development of the frontend, using Tailwind CSS to enhance the user interface, ensuring responsiveness and a modern experience. While 'Matheus Gama' led the development of the backend, which includes features such as user authentication, pin manipulation (add, edit, delete), creation of pin lists and implementation of a system for sending emails to confirm accounts and password updates.",
+                    dial1: "Light",
+                    dial2: "Dark",
+                    dial3: "System",
+                    dial4: "Back to top",
+                    
                 }
 
 

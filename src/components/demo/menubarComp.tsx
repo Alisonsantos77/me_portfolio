@@ -5,9 +5,6 @@ import {
     MenubarMenu,
     MenubarSeparator,
     MenubarShortcut,
-    MenubarSub,
-    MenubarSubContent,
-    MenubarSubTrigger,
     MenubarTrigger,
 } from "@/components/ui/menubar"
 import { PortugueseButton, EnglishButton } from "../language-selector"
@@ -45,10 +42,22 @@ export function MenubarComp() {
     });
 
     return (
-        <Menubar className="w-full sm:justify-center">
+        <Menubar className="w-full justify-center">
             <MenubarMenu>
                 <MenubarTrigger>{t("homemenu")}</MenubarTrigger>
                 <MenubarContent>
+                    <a href="https://wa.me/5514991615904?text=Ol%C3%A1+Alison%2C+tudo+bem%3F" target="_blank">
+
+                        <MenubarItem>
+                            Whatsapp<MenubarShortcut>⌘W</MenubarShortcut>
+                        </MenubarItem>
+                    </a>
+                    <a href="mailto:Alisondev77@hotmail.com" target="_blank">
+
+                        <MenubarItem>
+                            Email<MenubarShortcut>⌘E</MenubarShortcut>
+                        </MenubarItem>
+                    </a>
                     <a href="https://www.linkedin.com/in/alisonsantosdev/" target="_blank">
                         <MenubarItem>
                             Linkedin <MenubarShortcut>⌘L</MenubarShortcut>
@@ -61,41 +70,22 @@ export function MenubarComp() {
                         </MenubarItem>
                     </a>
                     <MenubarSeparator />
-                    <MenubarSub>
-                        <MenubarSubTrigger>Contact</MenubarSubTrigger>
-                        <MenubarSubContent>
-                            <a href="https://wa.me/5514991615904?text=Ol%C3%A1+Alison%2C+tudo+bem%3F" target="_blank">
-
-                                <MenubarItem>
-                                    Whatsapp<MenubarShortcut>⌘W</MenubarShortcut>
-                                </MenubarItem>
-                            </a>
-
-                            <a href="mailto:Alisondev77@hotmail.com" target="_blank">
-
-                                <MenubarItem>
-                                    Email<MenubarShortcut>⌘E</MenubarShortcut>
-                                </MenubarItem>
-                            </a>
-                        </MenubarSubContent>
-                    </MenubarSub>
-                    <MenubarSeparator />
                     <a href="src\assets\Curriculo_dev.pdf" target="_blank" download={curriculo_dev}>
 
                         <MenubarItem>
-                            Export cv... <MenubarShortcut>⌘C</MenubarShortcut>
+                            Export cv...
 
                         </MenubarItem>
                     </a>
                 </MenubarContent>
             </MenubarMenu>
-            <MenubarMenu>
+            {/* <MenubarMenu>
                 <a href="#Skills" >
                     <MenubarTrigger>
                         Skills
                     </MenubarTrigger>
                 </a>
-            </MenubarMenu>
+            </MenubarMenu> */}
             <MenubarMenu>
                 <a href="#Projetos" >
                     <MenubarTrigger>
@@ -113,14 +103,14 @@ export function MenubarComp() {
             <MenubarMenu>
                 <MenubarTrigger>{t("idiomamenu")}</MenubarTrigger>
                 <MenubarContent>
-                    <MenubarItem className="justify-center">
+                    <MenubarItem >
 
 
                         <PortugueseButton />
 
 
                     </MenubarItem>
-                    <MenubarItem className="justify-center">
+                    <MenubarItem >
 
                         <EnglishButton />
                     </MenubarItem>

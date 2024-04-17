@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 // Componente para mudar para o idioma português
 const PortugueseButton = () => {
+    const {t} = useTranslation()
     const { i18n } = useTranslation();
 
     const changeLanguageToPortuguese = () => {
@@ -9,12 +10,14 @@ const PortugueseButton = () => {
     };
 
     return (
-        <button onClick={changeLanguageToPortuguese}>Português</button>
+        <button onClick={changeLanguageToPortuguese}>{t("lang1")}</button>
     );
 };
 
 // mudar para o idioma inglês
 const EnglishButton = () => {
+    const { t } = useTranslation()
+
     const { i18n } = useTranslation();
 
     const changeLanguageToEnglish = () => {
@@ -22,7 +25,7 @@ const EnglishButton = () => {
     };
 
     return (
-        <button onClick={changeLanguageToEnglish}>Inglês</button>
+        <button onClick={changeLanguageToEnglish}>{t("lang2")}</button>
     );
 };
 
