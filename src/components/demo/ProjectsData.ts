@@ -1,4 +1,19 @@
-export const projectsData = {
+export interface Project {
+  id: string;
+  title: string;
+  descriptionKey: string;
+  videoSrc: string;
+  githubLink: string;
+  linkedinLink: string;
+}
+
+export interface ProjectsData {
+  beginner: Project[];
+  intermediate: Project[];
+  advanced: Project[];
+}
+
+export const projectsData: ProjectsData = {
   beginner: [
     {
       id: "beginner-1",
