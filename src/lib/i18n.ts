@@ -101,6 +101,9 @@ i18n
             "Desenvolvi um código em Python que demonstra o uso da API Gemini AI para gerar conteúdo de forma automatizada. Explora a capacidade da API de produzir respostas informativas e criativas para uma variedade de consultas. Esta solução é valiosa para criar chatbots, assistentes virtuais e outras aplicações de geração de conteúdo automatizado.",
           subiaapp:
             "SaberMais é mais do que uma aplicação de quizzes; é uma plataforma interativa desenvolvida com Python, Flet e inteligência artificial, projetada para oferecer uma experiência única de aprendizado. Cada quiz é construído dinamicamente para engajar e desafiar os usuários, promovendo uma nova forma de explorar o conhecimento.",
+          subfletube:
+            "Desenvolvi uma solução em Python com o Fletube, que facilita o download de vídeos de forma simples e acessível. Utilizando a biblioteca yt-dlp e integração com o Pillow para extração de thumbnails, o Fletube oferece uma experiência prática para usuários que buscam rapidez e eficiência. Ao criar este projeto, o objetivo foi proporcionar uma ferramenta fácil de usar e compartilhar, ideal para quem precisa baixar vídeos de maneira ágil e sem complicação.",
+
           // Experience
           titledsistem: "Sistema Integrado de Vendas",
           subweb:
@@ -199,6 +202,9 @@ i18n
             "I've developed a Python code that demonstrates the use of the Gemini AI API to generate content in an automated way. It exploits the API's ability to produce informative and creative answers to a variety of queries. This solution is valuable for creating chatbots, virtual assistants and other automated content generation applications.",
           subiaapp:
             "SaberMais is more than just a quiz application; it is an interactive platform developed with Python, Flet, and artificial intelligence, designed to provide a unique learning experience. Each quiz is dynamically built to engage and challenge users, promoting a new way to explore knowledge.",
+
+          subfletube:
+            "I developed a Python-based solution called Fletube, designed to simplify video downloads in an easy and accessible way. By leveraging the yt-dlp library and integrating Pillow for thumbnail extraction, Fletube provides a seamless experience for users seeking speed and efficiency. The goal behind this project was to deliver a user-friendly and shareable tool, perfect for those who need to download videos quickly and hassle-free.",
 
           // Experience
           titledsistem: "Integrated Sales System",
