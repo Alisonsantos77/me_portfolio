@@ -7,6 +7,7 @@ import { sendMessage } from "@/utils/sendMessage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { gsap } from "gsap";
+import { useTranslation } from "react-i18next";
 
 interface FormData {
   name: string;
@@ -16,6 +17,7 @@ interface FormData {
 }
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -40,7 +42,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm(formData)) {
-      toast.error("Por favor, preencha todos os campos corretamente.");
+      toast.error(t("error"));
       return;
     }
 
@@ -53,10 +55,10 @@ const ContactForm = () => {
     setLoading(false);
 
     if (response.success) {
-      toast.success("Mensagem enviada com sucesso!");
+      toast.success(t("success"));
       setFormData({ name: "", email: "", reason: "", message: "" });
     } else {
-      toast.error("Erro ao enviar mensagem, tente novamente.");
+      toast.error(t("error"));
     }
   };
 
@@ -73,10 +75,21 @@ const ContactForm = () => {
 
   return (
     <section id="contact" className="py-16 px-4 sm:px-8 lg:px-16">
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        toastStyle={{
+          backgroundColor: "var(--background)",
+          color: "var(--foreground)",
+        }}
+      />
       <h1 className="text-4xl font-extrabold text-center mb-10 text-foreground">
-        Entre em Contato
+        {t("contacttitle")}
       </h1>
+      <p className="text-center text-muted-foreground mb-8">
+        {t("contactsub")}
+      </p>
       <form
         ref={formRef}
         onSubmit={handleSubmit}
@@ -85,18 +98,18 @@ const ContactForm = () => {
         <div className="col-span-2">
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-muted-foreground"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
           >
-            Nome Completo
+            {t("name")}
           </label>
           <Input
             type="text"
             id="name"
             name="name"
-            placeholder="Nome Completo"
+            placeholder={t("name")}
             value={formData.name}
             onChange={handleChange}
-            className="mt-1 w-full border border-border bg-background text-foreground focus:ring-2 focus:ring-primary"
+            className="mt-1 w-full border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700"
           />
           {errors.name && (
             <p className="mt-1 text-sm text-destructive">{errors.name}</p>
@@ -106,18 +119,18 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-muted-foreground"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
           >
-            Email
+            {t("email")}
           </label>
           <Input
             type="email"
             id="email"
             name="email"
-            placeholder="Email"
+            placeholder={t("email")}
             value={formData.email}
             onChange={handleChange}
-            className="mt-1 w-full border border-border bg-background text-foreground focus:ring-2 focus:ring-primary"
+            className="mt-1 w-full border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700"
           />
           {errors.email && (
             <p className="mt-1 text-sm text-destructive">{errors.email}</p>
@@ -127,21 +140,21 @@ const ContactForm = () => {
         <div>
           <label
             htmlFor="reason"
-            className="block text-sm font-medium text-muted-foreground"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
           >
-            Motivo do Contato
+            {t("reason")}
           </label>
           <select
             id="reason"
             name="reason"
             value={formData.reason}
             onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-border bg-background text-foreground p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700"
           >
-            <option value="">Selecione uma opção</option>
-            <option value="Projetos">Projetos</option>
-            <option value="Parceria">Parceria</option>
-            <option value="Dúvidas">Dúvidas</option>
+            <option value="">{t("selectOption")}</option>
+            <option value="projects">{t("projects")}</option>
+            <option value="partnership">{t("partnership")}</option>
+            <option value="questions">{t("questions")}</option>
           </select>
           {errors.reason && (
             <p className="mt-1 text-sm text-destructive">{errors.reason}</p>
@@ -151,17 +164,17 @@ const ContactForm = () => {
         <div className="col-span-2">
           <label
             htmlFor="message"
-            className="block text-sm font-medium text-muted-foreground"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
           >
-            Mensagem
+            {t("message")}
           </label>
           <Textarea
             id="message"
             name="message"
-            placeholder="Sua mensagem..."
+            placeholder={t("message")}
             value={formData.message}
             onChange={handleChange}
-            className="mt-1 w-full h-32 resize-none mb-4 border border-border bg-background text-foreground focus:ring-2 focus:ring-primary"
+            className="mt-1 w-full h-32 resize-none mb-4 border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700"
           />
           {errors.message && (
             <p className="mt-1 text-sm text-destructive">{errors.message}</p>
@@ -171,10 +184,10 @@ const ContactForm = () => {
         <div className="col-span-2">
           <Button
             type="submit"
-            className="submit-button w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-4 rounded"
+            className="submit-button w-full bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded"
             disabled={loading}
           >
-            {loading ? "Enviando..." : "Enviar"}
+            {loading ? t("sending") : t("send")}
           </Button>
         </div>
       </form>
