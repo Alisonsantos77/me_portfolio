@@ -48,6 +48,10 @@ export function Projects() {
     );
   }
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <div id="Projetos" className="scrollbar scrollbar-thumb-rose-500">
       <h1 className="uppercase text-center text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white py-4">
