@@ -14,7 +14,7 @@ import {
 } from "../language-selector";
 import { useTranslation } from "react-i18next";
 import { useHotkeys } from "react-hotkeys-hook";
-import curriculo_dev from "@/assets/Curriculo_dev.pdf";
+import curriculo_dev from "@/assets/curriculodev.pdf";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { gsap } from "gsap";
