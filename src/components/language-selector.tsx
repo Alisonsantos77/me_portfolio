@@ -42,7 +42,6 @@ const EnglishButton = () => {
 
 // Componente para mudar para o idioma espanhol
 const SpanishButton = () => {
-  const { t } = useTranslation();
   const { i18n } = useTranslation();
 
   const changeLanguageToSpanish = () => {
