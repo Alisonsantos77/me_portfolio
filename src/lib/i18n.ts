@@ -103,6 +103,9 @@ i18n
             "SaberMais é mais do que uma aplicação de quizzes; é uma plataforma interativa desenvolvida com Python, Flet e inteligência artificial, projetada para oferecer uma experiência única de aprendizado. Cada quiz é construído dinamicamente para engajar e desafiar os usuários, promovendo uma nova forma de explorar o conhecimento.",
           subfletube:
             "Desenvolvi uma solução em Python com o Fletube, que facilita o download de vídeos de forma simples e acessível. Utilizando a biblioteca yt-dlp e integração com o Pillow para extração de thumbnails, o Fletube oferece uma experiência prática para usuários que buscam rapidez e eficiência. Ao criar este projeto, o objetivo foi proporcionar uma ferramenta fácil de usar e compartilhar, ideal para quem precisa baixar vídeos de maneira ágil e sem complicação.",
+          debtmanager: "DebtManager - Gestão Inteligente de Inadimplência",
+          subdebtmanager:
+            "Desenvolvi o DebtManager com Python e Flet, uma solução para pequenas e médias empresas gerenciarem inadimplência com eficiência. Extrai dados de PDFs com a IA Claude da Anthropic, automatiza cobranças via WhatsApp com Twilio e oferece dashboards com gráficos intuitivos. Tudo integrado ao Supabase para segurança e fluidez, criado com base nas dores reais de lojistas locais.",
 
           // Experience
           titledsistem: "Sistema Integrado de Vendas",
@@ -205,7 +208,9 @@ i18n
 
           subfletube:
             "I developed a Python-based solution called Fletube, designed to simplify video downloads in an easy and accessible way. By leveraging the yt-dlp library and integrating Pillow for thumbnail extraction, Fletube provides a seamless experience for users seeking speed and efficiency. The goal behind this project was to deliver a user-friendly and shareable tool, perfect for those who need to download videos quickly and hassle-free.",
-
+          debtmanager: "DebtManager - Intelligent Debt Management",
+          subdebtmanager:
+            "I developed DebtManager with Python and Flet, a solution for small and medium businesses to manage debt efficiently. It extracts data from PDFs using Anthropic's Claude AI, automates WhatsApp reminders with Twilio, and provides intuitive dashboards with graphs. Integrated with Supabase for security and performance, it was built based on the real challenges faced by local merchants.",
           // Experience
           titledsistem: "Integrated Sales System",
           subweb:

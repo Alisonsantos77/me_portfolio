@@ -134,13 +134,22 @@ export const projectsData: ProjectsData = {
         "https://www.linkedin.com/posts/alisonsantosdev_ia-python-desenvolvimentobackend-activity-7254251615900102656-cMKY?utm_source=share&utm_medium=member_desktop",
     },
     {
-        id: "advanced-8",
-        title: "Fletube - A Plataforma de Downloads Inteligente",
-        descriptionKey: "subfletube",
-        videoSrc: "/video/fletube.mp4",
-        githubLink: "https://github.com/Alisonsantos77/Fletube",
-        linkedinLink:
-          "https://www.linkedin.com/posts/alisonsantosdev_fletube-a-plataforma-de-downloads-inteligente-activity-7278889815947759616-s41a?utm_source=share&utm_medium=member_desktop",
+      id: "advanced-8",
+      title: "Fletube - A Plataforma de Downloads Inteligente",
+      descriptionKey: "subfletube",
+      videoSrc: "/video/fletube.mp4",
+      githubLink: "https://github.com/Alisonsantos77/Fletube",
+      linkedinLink:
+        "https://www.linkedin.com/posts/alisonsantosdev_fletube-a-plataforma-de-downloads-inteligente-activity-7278889815947759616-s41a?utm_source=share&utm_medium=member_desktop",
+    },
+    {
+      id: "advanced-9",
+      title: "DebtManager - Gestão Inteligente de Inadimplência",
+      descriptionKey: "subdebtmanager",
+      videoSrc: "/video/debt.mp4",
+      githubLink: "",
+      linkedinLink:
+        "https://www.linkedin.com/posts/alisonsantosdev_python-flet-inadimplaeancia-activity-7317997724782485504-g8Zj?utm_source=share&utm_medium=member_desktop&rcm=ACoAABxhAZgBVpIX71BWkgU5MTH6ajeT9AuRzGI",
     },
   ],
 };
