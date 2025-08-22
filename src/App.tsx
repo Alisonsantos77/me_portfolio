@@ -83,20 +83,7 @@ class ErrorBoundary extends Component<
 
 export function App() {
   useEffect(() => {
-    // Preload de recursos críticos
-    const preloadResources = () => {
-      // Preload de fontes ou recursos essenciais
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'font';
-      link.type = 'font/woff2';
-      link.crossOrigin = 'anonymous';
-      document.head.appendChild(link);
-    };
-
-    preloadResources();
-
-    // Smooth scroll behavior
+  // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
 
     return () => {

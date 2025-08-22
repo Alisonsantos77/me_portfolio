@@ -2,9 +2,12 @@ export interface Project {
   id: string;
   title: string;
   descriptionKey: string;
-  videoSrc: string;
+  videoSrc?: string;
+  imageSrc?: string;
   githubLink: string;
   linkedinLink: string;
+  downloadLink?: string;
+  isRecent?: boolean;
 }
 
 export interface ProjectsData {
@@ -72,6 +75,49 @@ export const projectsData: ProjectsData = {
     },
   ],
   advanced: [
+    // Projetos mais recentes primeiro
+    {
+      id: "advanced-10",
+      title: "SupaFit - Seu Parceiro de Treino Inteligente",
+      descriptionKey: "subsupafit",
+      imageSrc: "/src/assets/img/supafit.png",
+      githubLink: "", // Adicione o link do GitHub se disponível
+      linkedinLink: "https://www.linkedin.com/posts/alisonsantosdev_resolvi-um-problema-meu-e-acabei-criando-activity-7359313393587019776-RlQO?utm_source=share&utm_medium=member_desktop&rcm=ACoAABxhAZgBVpIX71BWkgU5MTH6ajeT9AuRzGI",
+      downloadLink: "https://drive.google.com/uc?export=download&id=1A2GEfjO-_kPjK0P0tMpa4gh30OCtu3PP",
+      isRecent: true,
+    },
+    {
+      id: "advanced-9",
+      title: "DebtManager - Gestão Inteligente de Inadimplência",
+      descriptionKey: "subdebtmanager",
+      videoSrc: "/video/debt.mp4",
+      githubLink: "",
+      linkedinLink:
+        "https://www.linkedin.com/posts/alisonsantosdev_python-flet-inadimplaeancia-activity-7317997724782485504-g8Zj?utm_source=share&utm_medium=member_desktop&rcm=ACoAABxhAZgBVpIX71BWkgU5MTH6ajeT9AuRzGI",
+      isRecent: true,
+    },
+    {
+      id: "advanced-8",
+      title: "Fletube - A Plataforma de Downloads Inteligente",
+      descriptionKey: "subfletube",
+      videoSrc: "/video/fletube.mp4",
+      githubLink: "https://github.com/Alisonsantos77/Fletube",
+      linkedinLink:
+        "https://www.linkedin.com/posts/alisonsantosdev_fletube-a-plataforma-de-downloads-inteligente-activity-7278889815947759616-s41a?utm_source=share&utm_medium=member_desktop",
+      downloadLink: "https://drive.google.com/uc?export=download&id=1V3Xz_P-0gvNEAqb7M8MZvMs8iWZKcFaD",
+      isRecent: true,
+    },
+    {
+      id: "advanced-7",
+      title: "SaberMais",
+      descriptionKey: "subiaapp",
+      videoSrc: "/video/sabermais.mp4",
+      githubLink: "https://github.com/Alisonsantos77/Sabermais.git",
+      linkedinLink:
+        "https://www.linkedin.com/posts/alisonsantosdev_ia-python-desenvolvimentobackend-activity-7254251615900102656-cMKY?utm_source=share&utm_medium=member_desktop",
+      isRecent: true,
+    },
+    // Projetos mais antigos
     {
       id: "advanced-1",
       title: "Reconhecedor Facial",
@@ -123,33 +169,6 @@ export const projectsData: ProjectsData = {
       githubLink: "https://github.com/Alisonsantos77/summary",
       linkedinLink:
         "https://www.linkedin.com/posts/alisonsantosdev_apresentando-o-sistema-de-respostas-autom%C3%A1ticas-activity-7186494943106850816-5OZS",
-    },
-    {
-      id: "advanced-7",
-      title: "SaberMais",
-      descriptionKey: "subiaapp",
-      videoSrc: "/video/sabermais.mp4",
-      githubLink: "https://github.com/Alisonsantos77/Sabermais.git",
-      linkedinLink:
-        "https://www.linkedin.com/posts/alisonsantosdev_ia-python-desenvolvimentobackend-activity-7254251615900102656-cMKY?utm_source=share&utm_medium=member_desktop",
-    },
-    {
-      id: "advanced-8",
-      title: "Fletube - A Plataforma de Downloads Inteligente",
-      descriptionKey: "subfletube",
-      videoSrc: "/video/fletube.mp4",
-      githubLink: "https://github.com/Alisonsantos77/Fletube",
-      linkedinLink:
-        "https://www.linkedin.com/posts/alisonsantosdev_fletube-a-plataforma-de-downloads-inteligente-activity-7278889815947759616-s41a?utm_source=share&utm_medium=member_desktop",
-    },
-    {
-      id: "advanced-9",
-      title: "DebtManager - Gestão Inteligente de Inadimplência",
-      descriptionKey: "subdebtmanager",
-      videoSrc: "/video/debt.mp4",
-      githubLink: "",
-      linkedinLink:
-        "https://www.linkedin.com/posts/alisonsantosdev_python-flet-inadimplaeancia-activity-7317997724782485504-g8Zj?utm_source=share&utm_medium=member_desktop&rcm=ACoAABxhAZgBVpIX71BWkgU5MTH6ajeT9AuRzGI",
     },
   ],
 };

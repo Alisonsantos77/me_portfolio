@@ -147,6 +147,8 @@ i18n
           debtmanager: "DebtManager - Gestão Inteligente de Inadimplência",
           subdebtmanager:
             "Desenvolvi o DebtManager com Python e Flet, uma solução para pequenas e médias empresas gerenciarem inadimplência com eficiência. Extrai dados de PDFs com a IA Claude da Anthropic, automatiza cobranças via WhatsApp com Twilio e oferece dashboards com gráficos intuitivos. Tudo integrado ao Supabase para segurança e fluidez, criado com base nas dores reais de lojistas locais.",
+          supafit: "SupaFit — Treinos que evoluem com você",
+          subsupafit: "Personalize treinos a partir dos seus dados, troque exercícios mantendo a lógica do plano e acompanhe resultados reais em gráficos. O Coachito entende seu histórico e o SupaBuddy te motiva a cumprir metas.",
           contacttitle: "Entre em Contato",
           contactsub:
             "Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para me enviar uma mensagem!",
@@ -258,6 +260,8 @@ i18n
           debtmanager: "DebtManager - Intelligent Debt Management",
           subdebtmanager:
             "I developed DebtManager with Python and Flet, a solution for small and medium businesses to manage debt efficiently. It extracts data from PDFs using Anthropic's Claude AI, automates WhatsApp reminders with Twilio, and provides intuitive dashboards with graphs. Integrated with Supabase for security and performance, it was built based on the real challenges faced by local merchants.",
+          supafit: "SupaFit — Workouts that evolve with you",
+          subsupafit: "Personalize workouts from your data, swap exercises without breaking the plan logic, and track real results with charts. Coachito knows your history and SupaBuddy keeps you motivated.",
           contacttitle: "Get in Touch",
           contactsub:
             "I'm always open to new opportunities and collaborations. Feel free to send me a message!",
@@ -369,6 +373,8 @@ i18n
           debtmanager: "DebtManager - Gestión Inteligente de Deudas",
           subdebtmanager:
             "Desarrollé DebtManager con Python y Flet, una solución para que pequeñas y medianas empresas gestionen las deudas de manera eficiente. Extrae datos de PDFs utilizando la IA Claude de Anthropic, automatiza recordatorios por WhatsApp con Twilio y proporciona paneles con gráficos intuitivos. Integrado con Supabase para seguridad y rendimiento, fue construido basándose en los desafíos reales enfrentados por comerciantes locales.",
+          supafit: "SupaFit — Entrenamientos que evolucionan contigo",
+          subsupafit: "Personaliza rutinas según tus datos, cambia ejercicios sin romper la lógica del plan y sigue resultados reales con gráficos. Coachito conoce tu historial y SupaBuddy te impulsa a lograr objetivos.",
           contacttitle: "Ponte en Contacto",
           contactsub:
             "Siempre estoy abierto a nuevas oportunidades y colaboraciones. ¡No dudes en enviarme un mensaje!",
