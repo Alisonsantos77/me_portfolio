@@ -80,8 +80,8 @@ export const projectsData: ProjectsData = {
       id: "advanced-10",
       title: "SupaFit - Seu Parceiro de Treino Inteligente",
       descriptionKey: "subsupafit",
-      imageSrc: "/src/assets/img/supafit.png",
-      githubLink: "", // Adicione o link do GitHub se disponível
+      imageSrc: "/images/supafit.png",
+      githubLink: "",
       linkedinLink: "https://www.linkedin.com/posts/alisonsantosdev_resolvi-um-problema-meu-e-acabei-criando-activity-7359313393587019776-RlQO?utm_source=share&utm_medium=member_desktop&rcm=ACoAABxhAZgBVpIX71BWkgU5MTH6ajeT9AuRzGI",
       downloadLink: "https://drive.google.com/uc?export=download&id=1A2GEfjO-_kPjK0P0tMpa4gh30OCtu3PP",
       isRecent: true,
