@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, Component, ReactNode } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Toaster } from "@/components/ui/sonner";
 import { MenubarComp } from "./components/demo/menubarComp";
 import HeroComp from "./components/demo/heroComp";
 import { cn } from "@/lib/utils";
@@ -149,6 +150,7 @@ export function App() {
           </Suspense>
         </footer>
       </div>
+      <Toaster richColors closeButton position="top-right" />
     </ErrorBoundary>
   );
 }

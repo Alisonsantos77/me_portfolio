@@ -100,7 +100,6 @@ export const sendMessage = async (formData: FormData) => {
       import.meta.env.VITE_EMAILJS_USER_ID!
     );
 
-    console.log("Mensagem enviada com sucesso:", result);
     return { success: true, result };
   } catch (error: unknown) {
     if (error instanceof Error) {

@@ -16,12 +16,14 @@ import { useTranslation } from "react-i18next";
 import { useHotkeys } from "react-hotkeys-hook";
 import curriculo_dev from "@/assets/curriculodev.pdf";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export function MenubarComp() {
   const { t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuContainerRef = useRef<HTMLDivElement>(null);
 
   // Função de scroll suave
   const smoothScroll = (
@@ -65,15 +67,18 @@ export function MenubarComp() {
   });
 
   // Animação do menu mobile
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      gsap.fromTo(
-        ".mobile-menu-item",
-        { opacity: 0, y: -20 },
-        { opacity: 1, y: 0, stagger: 0.1, duration: 0.3 }
-      );
-    }
-  }, [isMobileMenuOpen]);
+  useGSAP(
+    () => {
+      if (isMobileMenuOpen) {
+        gsap.fromTo(
+          ".mobile-menu-item",
+          { opacity: 0, y: -20 },
+          { opacity: 1, y: 0, stagger: 0.1, duration: 0.3 }
+        );
+      }
+    },
+    { scope: menuContainerRef, dependencies: [isMobileMenuOpen] }
+  );
 
   // Fechar menu ao clicar fora
   useEffect(() => {
@@ -89,7 +94,7 @@ export function MenubarComp() {
   }, []);
 
   return (
-    <div className="relative">
+    <div ref={menuContainerRef} className="relative">
       {/* Menu Desktop */}
       <Menubar className="hidden md:flex w-full justify-center">
         <MenubarMenu>

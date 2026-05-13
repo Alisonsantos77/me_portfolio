@@ -26,3 +26,11 @@ dist-ssr
 
 # Sensitiv
 .env
+
+# Playwright ad-hoc test artifacts
+playwright-contact-test.mjs
+playwright-contact-filled.png
+playwright-contact-result.png
+
+# Claude Code local context (não versionar)
+CLAUDE.md

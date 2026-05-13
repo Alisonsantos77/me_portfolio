@@ -1,196 +1,202 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useFormValidation } from "@/utils/useFormValidation";
-import { sendMessage } from "@/utils/sendMessage";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { gsap } from "gsap";
-import { useTranslation } from "react-i18next";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-interface FormData {
-  name: string;
-  email: string;
-  reason: string;
-  message: string;
-}
+import { sendMessage } from "@/utils/sendMessage";
+
+const REASONS = ["projects", "partnership", "questions"] as const;
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Nome deve ter ao menos 2 caracteres."),
+  email: z.string().email("E-mail inválido."),
+  reason: z
+    .string()
+    .min(1, "Selecione um motivo.")
+    .refine((v) => (REASONS as readonly string[]).includes(v), {
+      message: "Motivo inválido.",
+    }),
+  message: z.string().min(10, "Mensagem deve ter ao menos 10 caracteres."),
+});
+
+type ContactFormValues = z.infer<typeof contactSchema>;
 
 const ContactForm = () => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    reason: "",
-    message: "",
-  });
-
   const [loading, setLoading] = useState(false);
-  const { errors, validateField, validateForm } = useFormValidation();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    validateField(name, value);
-  };
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: { name: "", email: "", reason: "", message: "" },
+    mode: "onTouched",
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateForm(formData)) {
-      toast.error(t("error"));
-      return;
-    }
+  const { contextSafe } = useGSAP(
+    () => {
+      if (formRef.current) {
+        gsap.from(formRef.current.children, {
+          duration: 1,
+          y: 50,
+          stagger: 0.2,
+          ease: "power3.out",
+        });
+      }
+    },
+    { scope: formRef }
+  );
 
+  const pulseSubmit = (scale: number) =>
+    contextSafe(() => {
+      gsap.to(".submit-button", { scale, duration: 0.3 });
+    })();
+
+  const onSubmit = async (data: ContactFormValues) => {
     setLoading(true);
-    gsap.to(".submit-button", { scale: 1.05, duration: 0.3 });
+    pulseSubmit(1.05);
 
-    const response = await sendMessage(formData);
+    const response = await sendMessage(data);
 
-    gsap.to(".submit-button", { scale: 1, duration: 0.3 });
+    pulseSubmit(1);
     setLoading(false);
 
     if (response.success) {
       toast.success(t("success"));
-      setFormData({ name: "", email: "", reason: "", message: "" });
+      form.reset({ name: "", email: "", reason: "", message: "" });
     } else {
-      toast.error(t("error"));
+      toast.error(response.error || t("error"));
     }
   };
 
-  useEffect(() => {
-    if (formRef.current) {
-      gsap.from(formRef.current.children, {
-        duration: 1,
-        y: 50,
-        stagger: 0.2,
-        ease: "power3.out",
-      });
-    }
-  }, []);
-
   return (
-    <section id="contact" className="py-16 px-4 sm:px-8 lg:px-16">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar
-        toastStyle={{
-          backgroundColor: "var(--background)",
-          color: "var(--foreground)",
-        }}
-      />
+    <section className="py-16 px-4 sm:px-8 lg:px-16">
       <h1 className="text-4xl font-extrabold text-center mb-10 text-foreground">
         {t("contacttitle")}
       </h1>
       <p className="text-center text-muted-foreground mb-8">
         {t("contactsub")}
       </p>
-      <form
-        ref={formRef}
-        onSubmit={handleSubmit}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 rounded-lg"
-      >
-        <div className="col-span-2">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
-            {t("name")}
-          </label>
-          <Input
-            type="text"
-            id="name"
+
+      <Form {...form}>
+        <form
+          ref={formRef}
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 rounded-lg max-w-4xl mx-auto"
+          noValidate
+        >
+          <FormField
+            control={form.control}
             name="name"
-            placeholder={t("name")}
-            value={formData.name}
-            onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700"
+            render={({ field }) => (
+              <FormItem className="col-span-2">
+                <FormLabel>{t("name")}</FormLabel>
+                <FormControl>
+                  <Input placeholder={t("name")} autoComplete="name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {errors.name && (
-            <p className="mt-1 text-sm text-destructive">{errors.name}</p>
-          )}
-        </div>
 
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
-            {t("email")}
-          </label>
-          <Input
-            type="email"
-            id="email"
+          <FormField
+            control={form.control}
             name="email"
-            placeholder={t("email")}
-            value={formData.email}
-            onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("email")}</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder={t("email")}
+                    autoComplete="email"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {errors.email && (
-            <p className="mt-1 text-sm text-destructive">{errors.email}</p>
-          )}
-        </div>
 
-        <div>
-          <label
-            htmlFor="reason"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
-            {t("reason")}
-          </label>
-          <select
-            id="reason"
+          <FormField
+            control={form.control}
             name="reason"
-            value={formData.reason}
-            onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700"
-          >
-            <option value="">{t("selectOption")}</option>
-            <option value="projects">{t("projects")}</option>
-            <option value="partnership">{t("partnership")}</option>
-            <option value="questions">{t("questions")}</option>
-          </select>
-          {errors.reason && (
-            <p className="mt-1 text-sm text-destructive">{errors.reason}</p>
-          )}
-        </div>
-
-        <div className="col-span-2">
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-          >
-            {t("message")}
-          </label>
-          <Textarea
-            id="message"
-            name="message"
-            placeholder={t("message")}
-            value={formData.message}
-            onChange={handleChange}
-            className="mt-1 w-full h-32 resize-none mb-4 border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("reason")}</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  value={field.value ?? ""}
+                >
+                  <FormControl>
+                    <SelectTrigger aria-label={t("reason")}>
+                      <SelectValue placeholder={t("selectOption")} />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="projects">{t("projects")}</SelectItem>
+                    <SelectItem value="partnership">
+                      {t("partnership")}
+                    </SelectItem>
+                    <SelectItem value="questions">{t("questions")}</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {errors.message && (
-            <p className="mt-1 text-sm text-destructive">{errors.message}</p>
-          )}
-        </div>
 
-        <div className="col-span-2">
-          <Button
-            type="submit"
-            className="submit-button w-full bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded"
-            disabled={loading}
-          >
-            {loading ? t("sending") : t("send")}
-          </Button>
-        </div>
-      </form>
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem className="col-span-2">
+                <FormLabel>{t("message")}</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder={t("message")}
+                    className="h-32 resize-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <div className="col-span-2">
+            <Button
+              type="submit"
+              className="submit-button w-full bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded"
+              disabled={loading}
+            >
+              {loading ? t("sending") : t("send")}
+            </Button>
+          </div>
+        </form>
+      </Form>
     </section>
   );
 };

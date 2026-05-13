@@ -1,7 +1,6 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
-import Backend from "i18next-http-backend";
 
 // Configuração do detector de idioma
 const languageDetector = new LanguageDetector(null, {
@@ -20,14 +19,13 @@ const languageDetector = new LanguageDetector(null, {
   caches: ["localStorage", "cookie"],
   excludeCacheFor: ["cimode"],
   cookieMinutes: 10,
-  cookieDomain: "alisonsantos.netlify.app",
+  cookieDomain: "alisondev.com.br",
   htmlTag: document.documentElement,
 });
 
 i18n
   .use(languageDetector)
   .use(initReactI18next)
-  .use(Backend)
   .init({
     debug: process.env.NODE_ENV === "development",
     fallbackLng: "pt",
@@ -50,7 +48,7 @@ i18n
       ],
       caches: ["localStorage", "cookie"],
       cookieMinutes: 10,
-      cookieDomain: "alisonsantos.netlify.app",
+      cookieDomain: "alisondev.com.br",
     },
     resources: {
       pt: {

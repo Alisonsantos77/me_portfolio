@@ -55,7 +55,7 @@ export function Experience() {
           id="experience"
           className="flex flex-wrap -mx-4 -mb-10 text-center"
         >
-          <div id="exp-item" className="sm:w-1/2 mb-10 px-4">
+          <div className="exp-item sm:w-1/2 mb-10 px-4">
             <div className="rounded-lg h-96 overflow-hidden">
               <video
                 src={dsistem}
@@ -100,7 +100,7 @@ export function Experience() {
               </a>
             </div>
           </div>
-          <div id="exp-item" className="sm:w-1/2 mb-10 px-4">
+          <div className="exp-item sm:w-1/2 mb-10 px-4">
             <div className="rounded-lg h-96 overflow-hidden">
               <video
                 src={sharepin}

@@ -1,31 +1,34 @@
-import { useLayoutEffect } from "react";
+import { useRef } from "react";
 import { ThemeProvider } from "../theme-provider";
 import { ModeToggle } from "../theme-toggle";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function SpeedDial() {
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  const dialRef = useRef<HTMLDivElement>(null);
 
-    // Animação de "destaque"
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#btndial",
-          scrub: true,
-          start: "top 600px",
-          end: "bottom 1000px",
-        },
-      })
-      .fromTo("#btndial", { opacity: 0, x: 500 }, { opacity: 1, x: 0 });
-
-    return () => {
-      gsap.killTweensOf("#btndial");
-    };
-  }, []);
+  useGSAP(
+    () => {
+      if (!dialRef.current) return;
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: dialRef.current,
+            scrub: true,
+            start: "top 600px",
+            end: "bottom 1000px",
+          },
+        })
+        .fromTo(
+          dialRef.current,
+          { opacity: 0, x: 500 },
+          { opacity: 1, x: 0 }
+        );
+    },
+    { scope: dialRef }
+  );
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -34,6 +37,7 @@ export function SpeedDial() {
   return (
     <div
       id="btndial"
+      ref={dialRef}
       className="z-40 fixed bottom-6 end-6 md:right-10 flex flex-col gap-4"
     >
       <Button
