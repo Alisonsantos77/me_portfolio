@@ -94,13 +94,13 @@ export function HeroComp() {
 
                 </div>
             </div>
-            <div className="hidden lg:block bg-muted">
+            <div className="bg-muted">
                 <img
                     src={profileHero}
                     alt="Alison Santos"
                     width="1920"
                     height="1080"
-                    className="h-screen w-full brightness-75 object-cover dark:brightness-[0.2] dark:grayscale"
+                    className="h-64 sm:h-80 lg:h-screen w-full brightness-75 object-cover dark:brightness-[0.2] dark:grayscale"
                 />
             </div>
         </div>
