@@ -97,7 +97,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-8 lg:px-16">
+    <div className="px-4 sm:px-8 lg:px-16">
       <h1 className="text-4xl font-extrabold text-center mb-10 text-foreground text-balance">
         {t("contact.title")}
       </h1>
@@ -215,7 +215,7 @@ const ContactForm = () => {
           </div>
         </form>
       </Form>
-    </section>
+    </div>
   );
 };
 

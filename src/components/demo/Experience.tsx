@@ -47,7 +47,7 @@ export function Experience() {
 
   return (
     <section>
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container px-5 mx-auto">
         <h2 className="mb-10 text-4xl text-center tracking-tight font-extrabold text-foreground text-balance">
           {t("experience.title")}
         </h2>

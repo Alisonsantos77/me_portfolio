@@ -57,7 +57,7 @@ export function Projects() {
 
   return (
     <div id="Projetos" className="scrollbar scrollbar-thumb-rose-500">
-      <h1 className="uppercase text-center text-2xl tracking-tight font-extrabold text-foreground text-balance py-4">
+      <h1 className="uppercase text-center text-2xl tracking-tight font-extrabold text-foreground text-balance mb-8">
         {t("projects.sectionTitle")}
       </h1>
       <Tabs defaultValue="beginner" className="text-center">
