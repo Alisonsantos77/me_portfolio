@@ -4,7 +4,6 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarSeparator,
-  MenubarShortcut,
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import {
@@ -13,7 +12,6 @@ import {
   SpanishButton,
 } from "../language-selector";
 import { useTranslation } from "react-i18next";
-import { useHotkeys } from "react-hotkeys-hook";
 import curriculo_dev from "@/assets/curriculodev.pdf";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
@@ -24,6 +22,8 @@ export function MenubarComp() {
   const { t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuContainerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   // Função de scroll suave
   const smoothScroll = (
@@ -37,56 +37,33 @@ export function MenubarComp() {
     }
   };
 
-  // Hotkeys
-  useHotkeys("b", () => {
-    const element = document.getElementById("about");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-  useHotkeys("a", () => {
-    const element = document.getElementById("Projetos");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-  useHotkeys("l", () => {
-    window.open("https://www.linkedin.com/in/alisonsantosdev/", "_blank");
-  });
-  useHotkeys("g", () => {
-    window.open("https://github.com/Alisonsantos77", "_blank");
-  });
-  useHotkeys("e", () => {
-    window.open("mailto:Alisondev77@hotmail.com", "_blank");
-  });
-  useHotkeys("w", () => {
-    window.open(
-      "https://wa.me/5514991615904?text=Ol%C3%A1+Alison%2C+tudo+bem%3F",
-      "_blank"
-    );
-  });
-
   // Animação do menu mobile
   useGSAP(
     () => {
-      if (isMobileMenuOpen) {
+      if (!isMobileMenuOpen) return;
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.fromTo(
           ".mobile-menu-item",
           { opacity: 0, y: -20 },
-          { opacity: 1, y: 0, stagger: 0.1, duration: 0.3 }
+          { opacity: 1, y: 0, stagger: 0.08, duration: 0.3, ease: "power2.out" }
         );
-      }
+      });
+      return () => mm.revert();
     },
     { scope: menuContainerRef, dependencies: [isMobileMenuOpen] }
   );
 
-  // Fechar menu ao clicar fora
+  // Fechar menu ao clicar fora.
+  // Usa composedPath() em vez de target.closest() porque o ícone do trigger é
+  // trocado (Menu↔X) durante o commit do React, detachando o target SVG original
+  // antes do bubble chegar ao document — closest() retornaria null para o trigger.
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (!target.closest(".mobile-menu") && !target.closest(".menu-trigger")) {
-        setIsMobileMenuOpen(false);
-      }
+      const path = event.composedPath();
+      if (triggerRef.current && path.includes(triggerRef.current)) return;
+      if (mobileMenuRef.current && path.includes(mobileMenuRef.current)) return;
+      setIsMobileMenuOpen(false);
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -98,33 +75,25 @@ export function MenubarComp() {
       {/* Menu Desktop */}
       <Menubar className="hidden md:flex w-full justify-center">
         <MenubarMenu>
-          <MenubarTrigger>{t("homemenu")}</MenubarTrigger>
+          <MenubarTrigger>{t("nav.home")}</MenubarTrigger>
           <MenubarContent>
             <a
               href="https://wa.me/5514991615904?text=Ol%C3%A1+Alison%2C+tudo+bem%3F"
               target="_blank"
             >
-              <MenubarItem>
-                Whatsapp<MenubarShortcut>⌘W</MenubarShortcut>
-              </MenubarItem>
+              <MenubarItem>Whatsapp</MenubarItem>
             </a>
             <a href="mailto:Alisondev77@hotmail.com" target="_blank">
-              <MenubarItem>
-                Email<MenubarShortcut>⌘E</MenubarShortcut>
-              </MenubarItem>
+              <MenubarItem>Email</MenubarItem>
             </a>
             <a
               href="https://www.linkedin.com/in/alisonsantosdev/"
               target="_blank"
             >
-              <MenubarItem>
-                Linkedin <MenubarShortcut>⌘L</MenubarShortcut>
-              </MenubarItem>
+              <MenubarItem>Linkedin</MenubarItem>
             </a>
             <a href="https://github.com/Alisonsantos77" target="_blank">
-              <MenubarItem>
-                Github<MenubarShortcut>⌘G</MenubarShortcut>
-              </MenubarItem>
+              <MenubarItem>Github</MenubarItem>
             </a>
             <MenubarSeparator />
             <a href={curriculo_dev} target="_blank" download>
@@ -133,17 +102,21 @@ export function MenubarComp() {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <a href="#Projetos" onClick={(e) => smoothScroll(e, "Projetos")}>
-            <MenubarTrigger>{t("projectsmenu")}</MenubarTrigger>
-          </a>
+          <MenubarTrigger asChild>
+            <a href="#Projetos" onClick={(e) => smoothScroll(e, "Projetos")}>
+              {t("nav.projects")}
+            </a>
+          </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
-          <a href="#experience" onClick={(e) => smoothScroll(e, "experience")}>
-            <MenubarTrigger>{t("experiencemenu")}</MenubarTrigger>
-          </a>
+          <MenubarTrigger asChild>
+            <a href="#experience" onClick={(e) => smoothScroll(e, "experience")}>
+              {t("nav.experience")}
+            </a>
+          </MenubarTrigger>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger>{t("idiomamenu")}</MenubarTrigger>
+          <MenubarTrigger>{t("nav.language")}</MenubarTrigger>
           <MenubarContent>
             <MenubarItem>
               <PortugueseButton />
@@ -161,6 +134,7 @@ export function MenubarComp() {
       {/* Menu Mobile */}
       <div className="md:hidden">
         <button
+          ref={triggerRef}
           className="menu-trigger p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
@@ -169,7 +143,7 @@ export function MenubarComp() {
         </button>
 
         {isMobileMenuOpen && (
-          <div className="mobile-menu absolute top-full left-0 w-full bg-background shadow-lg z-50">
+          <div ref={mobileMenuRef} className="mobile-menu absolute top-full left-0 w-full bg-background shadow-lg z-50">
             <div className="p-4 space-y-4">
               <div className="mobile-menu-item">
                 <a
@@ -180,7 +154,7 @@ export function MenubarComp() {
                     setIsMobileMenuOpen(false);
                   }}
                 >
-                  {t("projectsmenu")}
+                  {t("nav.projects")}
                 </a>
               </div>
               <div className="mobile-menu-item">
@@ -192,7 +166,7 @@ export function MenubarComp() {
                     setIsMobileMenuOpen(false);
                   }}
                 >
-                  {t("experiencemenu")}
+                  {t("nav.experience")}
                 </a>
               </div>
               <div className="mobile-menu-item">

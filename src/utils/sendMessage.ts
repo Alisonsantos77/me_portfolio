@@ -5,6 +5,7 @@ interface FormData {
   email: string;
   reason: string;
   message: string;
+  website?: string;
 }
 
 // Simples implementação de rate limiting
@@ -72,6 +73,11 @@ const validateFormData = (
 
 export const sendMessage = async (formData: FormData) => {
   try {
+    // Honeypot: campo invisível ao usuário. Se veio preenchido, é bot — fingir sucesso e abortar.
+    if (formData.website && formData.website.trim().length > 0) {
+      return { success: true };
+    }
+
     // Verificar rate limiting
     if (isRateLimited(formData.email)) {
       throw new Error(

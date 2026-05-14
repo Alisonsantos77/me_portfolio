@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, Component, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Toaster } from "@/components/ui/sonner";
 import { MenubarComp } from "./components/demo/menubarComp";
@@ -83,6 +84,8 @@ class ErrorBoundary extends Component<
 }
 
 export function App() {
+  const { i18n } = useTranslation();
+
   useEffect(() => {
   // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -91,6 +94,17 @@ export function App() {
       document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
+
+  useEffect(() => {
+    const apply = (lng: string) => {
+      document.documentElement.lang = lng.split("-")[0];
+    };
+    apply(i18n.language);
+    i18n.on("languageChanged", apply);
+    return () => {
+      i18n.off("languageChanged", apply);
+    };
+  }, [i18n]);
 
   return (
     <ErrorBoundary>

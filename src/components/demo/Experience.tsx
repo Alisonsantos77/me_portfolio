@@ -7,9 +7,10 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
-import dsistem from "@/assets/video/dsistem.mp4";
-import sharepin from "@/assets/video/sharepin_front.mp4";
 import { Skeleton } from "@/components/ui/skeleton";
+
+const dsistem = "/video/dsistem.mp4";
+const sharepin = "/video/sharepin_front.mp4";
 
 export function Experience() {
   const { t } = useTranslation();
@@ -45,10 +46,10 @@ export function Experience() {
   }
 
   return (
-    <section className="text-gray-600 body-font">
+    <section>
       <div className="container px-5 py-24 mx-auto">
-        <h2 className="mb-10 text-4xl text-center tracking-tight font-extrabold text-gray-900 dark:text-white">
-          {t("experiencemenu")}
+        <h2 className="mb-10 text-4xl text-center tracking-tight font-extrabold text-foreground text-balance">
+          {t("experience.title")}
         </h2>
 
         <div
@@ -56,7 +57,7 @@ export function Experience() {
           className="flex flex-wrap -mx-4 -mb-10 text-center"
         >
           <div className="exp-item sm:w-1/2 mb-10 px-4">
-            <div className="rounded-lg h-96 overflow-hidden">
+            <div className="rounded-lg aspect-video overflow-hidden">
               <video
                 src={dsistem}
                 autoPlay
@@ -65,43 +66,45 @@ export function Experience() {
                 className="object-cover object-center h-full w-full"
               />
             </div>
-            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mt-6 mb-7">
-              {t("titledsistem")}
+            <h2 className="text-3xl font-semibold text-foreground mt-6 mb-7 text-balance">
+              {t("experience.items.dsistem.title")}
             </h2>
-            <p className="leading-relaxed text-base">{t("subweb")} </p>
+            <p className="leading-relaxed text-base text-muted-foreground text-pretty">{t("experience.items.dsistem.desc")} </p>
             <div className="flex justify-center mt-7 gap-5">
               <div className="mr-4 hover:underline md:mr-6 ">
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger className="cursor-not-allowed">
-                      <AiFillGithub className="ml-2 -mr-1 w-8 h-8" />
+                    <TooltipTrigger aria-label="Repositório privado" className="cursor-not-allowed inline-flex items-center justify-center min-h-11 min-w-11">
+                      <AiFillGithub aria-hidden="true" className="ml-2 -mr-1 size-8" />
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>Private</p>
+                      <p>Repositório privado</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <a
-                href="https://www.linkedin.com/posts/alisonsantosdev_apresentando-o-sistema-de-gerenciamento-activity-7183952610297602048-8FY0?utm_source=share&utm_medium=member_desktop"
-                target="_blank"
-                className="mr-4 hover:underline md:mr-6 "
-              >
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <AiFillLinkedin className="ml-2 -mr-1 w-8 h-8" />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Go Linkedin</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </a>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a
+                      href="https://www.linkedin.com/posts/alisonsantosdev_apresentando-o-sistema-de-gerenciamento-activity-7183952610297602048-8FY0?utm_source=share&utm_medium=member_desktop"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Ver no LinkedIn — Sistema Integrado de Vendas"
+                      className="mr-4 hover:underline md:mr-6 inline-flex items-center justify-center min-h-11 min-w-11"
+                    >
+                      <AiFillLinkedin aria-hidden="true" className="ml-2 -mr-1 size-8" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Ver no LinkedIn</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
           </div>
           <div className="exp-item sm:w-1/2 mb-10 px-4">
-            <div className="rounded-lg h-96 overflow-hidden">
+            <div className="rounded-lg aspect-video overflow-hidden">
               <video
                 src={sharepin}
                 autoPlay
@@ -110,39 +113,41 @@ export function Experience() {
                 className="object-cover object-center h-full w-full"
               />
             </div>
-            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mt-6 mb-7">
-              {t("titlesharepin")}
+            <h2 className="text-3xl font-semibold text-foreground mt-6 mb-7 text-balance">
+              {t("experience.items.sharepin.title")}
             </h2>
-            <p className="leading-relaxed text-base">{t("subsharepin")} </p>
+            <p className="leading-relaxed text-base text-muted-foreground text-pretty">{t("experience.items.sharepin.desc")} </p>
             <div className="flex justify-center mt-7 gap-5">
               <div className="mr-4 hover:underline md:mr-6 ">
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger className="cursor-not-allowed">
-                      <AiFillGithub className="ml-2 -mr-1 w-8 h-8" />
+                    <TooltipTrigger aria-label="Repositório privado" className="cursor-not-allowed inline-flex items-center justify-center min-h-11 min-w-11">
+                      <AiFillGithub aria-hidden="true" className="ml-2 -mr-1 size-8" />
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>Private</p>
+                      <p>Repositório privado</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <a
-                href="https://www.linkedin.com/posts/alisonsantosdev_apresentando-o-projeto-de-desenvolvimento-activity-7184326363800092672-1Sdn?utm_source=share&utm_medium=member_desktop"
-                target="_blank"
-                className="mr-4 hover:underline md:mr-6 "
-              >
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <AiFillLinkedin className="ml-2 -mr-1 w-8 h-8" />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Go Linkedin</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </a>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a
+                      href="https://www.linkedin.com/posts/alisonsantosdev_apresentando-o-projeto-de-desenvolvimento-activity-7184326363800092672-1Sdn?utm_source=share&utm_medium=member_desktop"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Ver no LinkedIn — Share Pin"
+                      className="mr-4 hover:underline md:mr-6 inline-flex items-center justify-center min-h-11 min-w-11"
+                    >
+                      <AiFillLinkedin aria-hidden="true" className="ml-2 -mr-1 size-8" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Ver no LinkedIn</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
           </div>
         </div>

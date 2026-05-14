@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alisondev.com.br/sitemap.xml
