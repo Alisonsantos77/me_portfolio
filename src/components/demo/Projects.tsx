@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Carousel,
@@ -9,21 +9,28 @@ import {
 } from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
-import { projectsData, ProjectsData, Project } from "./ProjectsData";
+import { projects, groupByLevel, type ProjectLevel } from "@/data/projects";
 import { CarouselProject } from "./CarouselProject";
+
+const LEVELS: {
+  value: ProjectLevel;
+  labelKey:
+    | "projects.levels.beginner"
+    | "projects.levels.intermediate"
+    | "projects.levels.advanced";
+}[] = [
+  { value: "beginner", labelKey: "projects.levels.beginner" },
+  { value: "intermediate", labelKey: "projects.levels.intermediate" },
+  { value: "advanced", labelKey: "projects.levels.advanced" },
+];
 
 export function Projects() {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState<ProjectsData | null>(null);
+  const grouped = useMemo(() => groupByLevel(projects), []);
 
   useEffect(() => {
-    // Simular carregamento
-    const timer = setTimeout(() => {
-      setData(projectsData);
-      setIsLoading(false);
-    }, 1500);
-
+    const timer = setTimeout(() => setIsLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -48,63 +55,35 @@ export function Projects() {
     );
   }
 
-  if (!data) {
-    return null;
-  }
-
   return (
     <div id="Projetos" className="scrollbar scrollbar-thumb-rose-500">
-      <h1 className="uppercase text-center text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white py-4">
-        {t("projectsmenu")}
+      <h1 className="uppercase text-center text-2xl tracking-tight font-extrabold text-foreground text-balance py-4">
+        {t("projects.sectionTitle")}
       </h1>
       <Tabs defaultValue="beginner" className="text-center">
         <TabsList>
-          <TabsTrigger value="beginner">{t("inician")}</TabsTrigger>
-          <TabsTrigger value="intermediate">{t("interm")}</TabsTrigger>
-          <TabsTrigger value="advanced">{t("avanced")}</TabsTrigger>
+          {LEVELS.map(({ value, labelKey }) => (
+            <TabsTrigger key={value} value={value}>
+              {t(labelKey)}
+            </TabsTrigger>
+          ))}
         </TabsList>
 
-        <TabsContent value="beginner">
-          <Carousel className="w-full max-w-screen-2xl py-8 px-4 mx-auto">
-            <CarouselContent>
-              {data.beginner.map((project: Project) => (
-                <CarouselItem key={project.id}>
-                  <CarouselProject {...project} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselNext className="absolute top-1/2 right-4 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12" />
-            <CarouselPrevious className="absolute top-1/2 left-4 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12" />
-          </Carousel>
-        </TabsContent>
-
-        <TabsContent value="intermediate">
-          <Carousel className="w-full max-w-screen-2xl py-8 px-4 mx-auto">
-            <CarouselContent>
-              {data.intermediate.map((project: Project) => (
-                <CarouselItem key={project.id}>
-                  <CarouselProject {...project} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselNext className="absolute top-1/2 right-4 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12" />
-            <CarouselPrevious className="absolute top-1/2 left-4 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12" />
-          </Carousel>
-        </TabsContent>
-
-        <TabsContent value="advanced">
-          <Carousel className="w-full max-w-screen-2xl py-8 px-4 mx-auto">
-            <CarouselContent>
-              {data.advanced.map((project: Project) => (
-                <CarouselItem key={project.id}>
-                  <CarouselProject {...project} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselNext className="absolute top-1/2 right-4 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12" />
-            <CarouselPrevious className="absolute top-1/2 left-4 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12" />
-          </Carousel>
-        </TabsContent>
+        {LEVELS.map(({ value }) => (
+          <TabsContent key={value} value={value}>
+            <Carousel className="w-full max-w-screen-2xl py-8 px-4 mx-auto">
+              <CarouselContent>
+                {grouped[value].map((project) => (
+                  <CarouselItem key={project.id}>
+                    <CarouselProject project={project} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselNext className="absolute top-1/2 right-4 -translate-y-1/2 size-11 md:size-12" />
+              <CarouselPrevious className="absolute top-1/2 left-4 -translate-y-1/2 size-11 md:size-12" />
+            </Carousel>
+          </TabsContent>
+        ))}
       </Tabs>
     </div>
   );

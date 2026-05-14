@@ -12,20 +12,25 @@ export function SpeedDial() {
   useGSAP(
     () => {
       if (!dialRef.current) return;
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: dialRef.current,
-            scrub: true,
-            start: "top 600px",
-            end: "bottom 1000px",
-          },
-        })
-        .fromTo(
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
           dialRef.current,
-          { opacity: 0, x: 500 },
-          { opacity: 1, x: 0 }
+          { opacity: 0, xPercent: 200 },
+          {
+            opacity: 1,
+            xPercent: 0,
+            duration: 0.4,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: "body",
+              start: "top -100",
+              toggleActions: "play none none reverse",
+            },
+          }
         );
+      });
+      return () => mm.revert();
     },
     { scope: dialRef }
   );
