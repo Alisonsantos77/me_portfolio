@@ -15,7 +15,7 @@ const PortugueseButton = () => {
       className="px-3 py-1 rounded hover:bg-primary/10 transition-colors"
       aria-label="Mudar para português"
     >
-      {t("lang1")}
+      {t("languages.pt")}
     </button>
   );
 };
@@ -35,14 +35,14 @@ const EnglishButton = () => {
       className="px-3 py-1 rounded hover:bg-primary/10 transition-colors"
       aria-label="Change to English"
     >
-      {t("lang2")}
+      {t("languages.en")}
     </button>
   );
 };
 
 // Componente para mudar para o idioma espanhol
 const SpanishButton = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const changeLanguageToSpanish = () => {
     i18n.changeLanguage("es");
@@ -54,7 +54,7 @@ const SpanishButton = () => {
       className="px-3 py-1 rounded hover:bg-primary/10 transition-colors"
       aria-label="Cambiar a español"
     >
-      Español
+      {t("languages.es")}
     </button>
   );
 };

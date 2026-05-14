@@ -22,17 +22,26 @@ export function Skills() {
 
     useGSAP(
         () => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".models-item",
-                    scrub: true,
-                    start: "top 1000px",
-                    end: "bottom 850px",
-                },
+            const mm = gsap.matchMedia();
+            mm.add("(prefers-reduced-motion: no-preference)", () => {
+                gsap.fromTo(
+                    MODEL_IDS.join(", "),
+                    { opacity: 0, y: 60 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        stagger: 0.15,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: skillsRef.current,
+                            scrub: 1,
+                            start: "top 80%",
+                            end: "top 30%",
+                        },
+                    }
+                );
             });
-            MODEL_IDS.forEach((id) =>
-                tl.fromTo(id, { opacity: 0, y: 300 }, { opacity: 1, y: 0 })
-            );
+            return () => mm.revert();
         },
         { scope: skillsRef }
     );
@@ -41,57 +50,55 @@ export function Skills() {
         <div id="Skills" ref={skillsRef}>
             <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
                 <div className="max-w-screen-md mb-8 lg:mb-16">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                        {t("skillstitle")}
+                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-foreground text-balance">
+                        {t("skills.title")}
                     </h2>
-                    <p className="text-gray-500 sm:text-xl dark:text-gray-400">
-                        Habilidades técnicas e linguagens de programação dominadas,
-                        refletindo minha capacidade de criar soluções inovadoras e eficientes
-                        em diversas áreas.
+                    <p className="text-muted-foreground sm:text-xl text-pretty">
+                        {t("skills.intro")}
                     </p>
                 </div>
                 <div className=" space-y-8  md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
                     <div className="models-item" id="model-1">
-                        <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <DiPython className=" w-7  h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                        <div className="flex justify-center items-center mb-4 size-10 lg:size-12 rounded-full bg-primary/15 dark:bg-primary/30">
+                            <DiPython aria-hidden="true" className="size-7 lg:size-6 text-primary" />
                         </div>
-                        <h3 className="mb-2 text-xl font-bold dark:text-white">Python</h3>
-                        <p className="text-gray-500 dark:text-gray-400">{t("python")}</p>
+                        <h3 className="mb-2 text-xl font-bold text-foreground">{t("skills.items.python.title")}</h3>
+                        <p className="text-muted-foreground">{t("skills.items.python.desc")}</p>
                     </div>
                     <div className="models-item" id="model-2">
-                        <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <SiDjango className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                        <div className="flex justify-center items-center mb-4 size-10 lg:size-12 rounded-full bg-primary/15 dark:bg-primary/30">
+                            <SiDjango aria-hidden="true" className="size-7 lg:size-6 text-primary" />
                         </div>
-                        <h3 className="mb-2 text-xl font-bold dark:text-white">{t("titledjango")}</h3>
-                        <p className="text-gray-500 dark:text-gray-400">{t("django")}</p>
+                        <h3 className="mb-2 text-xl font-bold text-foreground">{t("skills.items.django.title")}</h3>
+                        <p className="text-muted-foreground">{t("skills.items.django.desc")}</p>
                     </div>
                     <div className="models-item" id="model-3">
-                        <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <PiDesktopTowerFill className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                        <div className="flex justify-center items-center mb-4 size-10 lg:size-12 rounded-full bg-primary/15 dark:bg-primary/30">
+                            <PiDesktopTowerFill aria-hidden="true" className="size-7 lg:size-6 text-primary" />
                         </div>
-                        <h3 className="mb-2 text-xl font-bold dark:text-white">{t("titledesktop")}</h3>
-                        <p className="text-gray-500 dark:text-gray-400"> {t("desktop")}</p>
+                        <h3 className="mb-2 text-xl font-bold text-foreground">{t("skills.items.desktop.title")}</h3>
+                        <p className="text-muted-foreground">{t("skills.items.desktop.desc")}</p>
                     </div>
                     <div className="models-item" id="model-4">
-                        <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <FaRobot className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                        <div className="flex justify-center items-center mb-4 size-10 lg:size-12 rounded-full bg-primary/15 dark:bg-primary/30">
+                            <FaRobot aria-hidden="true" className="size-7 lg:size-6 text-primary" />
                         </div>
-                        <h3 className="mb-2 text-xl font-bold dark:text-white">Deep Learning</h3>
-                        <p className="text-gray-500 dark:text-gray-400">{t("deeplearning")}</p>
+                        <h3 className="mb-2 text-xl font-bold text-foreground">{t("skills.items.deepLearning.title")}</h3>
+                        <p className="text-muted-foreground">{t("skills.items.deepLearning.desc")}</p>
                     </div>
                     <div className="models-item" id="model-5">
-                        <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <FaMicrochip className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                        <div className="flex justify-center items-center mb-4 size-10 lg:size-12 rounded-full bg-primary/15 dark:bg-primary/30">
+                            <FaMicrochip aria-hidden="true" className="size-7 lg:size-6 text-primary" />
                         </div>
-                        <h3 className="mb-2 text-xl font-bold dark:text-white">{t("titleintegracao")}</h3>
-                        <p className="text-gray-500 dark:text-gray-400">{t("integracaoai")}</p>
+                        <h3 className="mb-2 text-xl font-bold text-foreground">{t("skills.items.aiIntegration.title")}</h3>
+                        <p className="text-muted-foreground">{t("skills.items.aiIntegration.desc")}</p>
                     </div>
                     <div className="models-item" id="model-6">
-                        <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
-                            <SiTailwindcss className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300" />
+                        <div className="flex justify-center items-center mb-4 size-10 lg:size-12 rounded-full bg-primary/15 dark:bg-primary/30">
+                            <SiTailwindcss aria-hidden="true" className="size-7 lg:size-6 text-primary" />
                         </div>
-                        <h3 className="mb-2 text-xl font-bold dark:text-white">Frontend (Tailwindcss)</h3>
-                        <p className="text-gray-500 dark:text-gray-400">{t("frontend")}</p>
+                        <h3 className="mb-2 text-xl font-bold text-foreground">{t("skills.items.frontend.title")}</h3>
+                        <p className="text-muted-foreground">{t("skills.items.frontend.desc")}</p>
                     </div>
                 </div>
             </div>
