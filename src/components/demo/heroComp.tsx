@@ -4,8 +4,9 @@ import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { PiMicrosoftOutlookLogo } from "react-icons/pi";
 import { RiWhatsappFill } from "react-icons/ri";
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
-import  profileHero  from "@/assets/img/alison-santos.png"
 import SpeedDial  from "./SpeedDial";
+
+const profileHero = "/images/hero_photo.webp";
 export function HeroComp() {
     const { t } = useTranslation()
 
@@ -94,14 +95,16 @@ export function HeroComp() {
 
                 </div>
             </div>
-            <div className="bg-muted">
+            <div className="relative bg-muted">
                 <img
                     src={profileHero}
                     alt="Alison Santos"
-                    width="1920"
-                    height="1080"
-                    className="h-64 sm:h-80 lg:h-screen w-full brightness-75 object-cover dark:brightness-[0.2] dark:grayscale"
+                    width="800"
+                    height="1000"
+                    className="aspect-[3/4] lg:aspect-auto lg:h-screen w-full object-cover object-top brightness-90 dark:brightness-[0.55]"
                 />
+                {/* Gradiente sutil na base para integrar com o fundo */}
+                <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
             </div>
         </div>
         </div>

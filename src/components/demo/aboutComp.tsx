@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import profile1 from "@/assets/img/about_me1.webp";
-import profile2 from "@/assets/img/about_me2.webp";
+const profile1 = "/images/about_me1.webp";
+const profile2 = "/images/about_me2.webp";
 
 export function AboutComp() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -35,23 +35,23 @@ export function AboutComp() {
     return (
         <div
             ref={containerRef}
-            className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
+            className="gap-16 items-center px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:px-6"
         >
             <div id="about" className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
                 <img
                     id="image1"
                     className="w-full rounded-lg brightness-100 dark:grayscale"
                     src={profile2}
-                    width={528}
-                    height={1072}
+                    width={600}
+                    height={800}
                     alt="Foto profissional 2"
                 />
                 <img
                     id="image2"
                     className="mt-4 w-full lg:mt-10 rounded-lg brightness-100 dark:grayscale"
                     src={profile1}
-                    width={1000}
-                    height={2029}
+                    width={600}
+                    height={800}
                     alt="Foto profissional 1"
                 />
             </div>

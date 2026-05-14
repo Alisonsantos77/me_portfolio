@@ -122,35 +122,35 @@ export function App() {
           </section>
 
           {/* About Section */}
-          <section id="about" className="relative py-16">
+          <section id="about" className="relative py-20 lg:py-32">
             <Suspense fallback={<SectionSkeleton height="h-96" />}>
               <AboutComp />
             </Suspense>
           </section>
 
           {/* Skills Section */}
-          <section id="skills" className="relative py-16 bg-muted/30">
+          <section id="skills" className="relative py-20 lg:py-32 bg-muted/30">
             <Suspense fallback={<SectionSkeleton height="h-[600px]" />}>
               <Skills />
             </Suspense>
           </section>
 
           {/* Projects Section */}
-          <section id="projects" className="relative py-16">
+          <section id="projects" className="relative py-20 lg:py-32">
             <Suspense fallback={<SectionSkeleton height="h-[800px]" />}>
               <Projects />
             </Suspense>
           </section>
 
           {/* Experience Section */}
-          <section id="experience" className="relative py-16 bg-muted/30">
+          <section id="experience" className="relative py-20 lg:py-32 bg-muted/30">
             <Suspense fallback={<SectionSkeleton height="h-96" />}>
               <Experience />
             </Suspense>
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="relative py-16">
+          <section id="contact" className="relative py-20 lg:py-32">
             <Suspense fallback={<SectionSkeleton height="h-[600px]" />}>
               <ContactForm />
             </Suspense>

@@ -28,17 +28,8 @@ dist-ssr
 .env
 
 # Playwright ad-hoc test artifacts
-playwright-contact-test.mjs
-playwright-contact-filled.png
-playwright-contact-result.png
-playwright-mobile-menu-test.mjs
-playwright-mobile-menu-closed.png
-playwright-mobile-menu-open.png
-playwright-projects-test.mjs
-playwright-hero-mobile.mjs
-playwright-hero-mobile.png
-playwright-hero-desktop.png
-playwright-target-size-debug.mjs
+playwright-*.mjs
+playwright-*.png
 lh-*.json
 
 # Claude Code local context (não versionar)
