@@ -85,6 +85,10 @@ const resources = {
             title: "Youtube Downloader",
             desc: "Desenvolvi um downloader para YouTube que permite baixar vídeos e músicas facilmente. Usei Python, CustomTkinter e Pytube para criar este aplicativo, garantindo compatibilidade com vários formatos de áudio e vídeo.",
           },
+          entregai: {
+            title: "Entregai — Comanda de papel vira rota",
+            desc: "Projetei e construí depois de ver de perto o gargalo das entregas: o app fotografa a comanda, o GPT-4o Vision extrai cliente, endereço, pagamento e troco, e o pedido entra na jornada do dia. Cada saída fecha com total, horário e taxa; o endereço abre direto no Waze. Flet 0.85, Supabase com RLS por usuário e APK assinado no GitHub Actions.",
+          },
           supafit: {
             title: "SupaFit — Treinos que evoluem com você",
             desc: "Personalize treinos a partir dos seus dados, troque exercícios mantendo a lógica do plano e acompanhe resultados reais em gráficos. O Coachito entende seu histórico e o SupaBuddy te motiva a cumprir metas.",
@@ -254,6 +258,10 @@ const resources = {
             title: "Youtube Downloader",
             desc: "I've developed a downloader for YouTube that allows you to download videos and music easily. I used Python, CustomTkinter and Pytube to create this application, ensuring compatibility with various audio and video formats.",
           },
+          entregai: {
+            title: "Entregai — Paper ticket becomes a route",
+            desc: "Designed and built after seeing the delivery bottleneck up close: the app photographs the paper ticket, GPT-4o Vision extracts customer, address, payment and change, and the order joins the day's run. Each run closes with total, time and fee; the address opens straight in Waze. Flet 0.85, Supabase with per-user RLS, and a signed APK from GitHub Actions.",
+          },
           supafit: {
             title: "SupaFit — Workouts that evolve with you",
             desc: "Personalize workouts from your data, swap exercises without breaking the plan logic, and track real results with charts. Coachito knows your history and SupaBuddy keeps you motivated.",
@@ -422,6 +430,10 @@ const resources = {
           youtubeDownloader: {
             title: "Descargador de YouTube",
             desc: "He desarrollado un descargador para YouTube que te permite descargar videos y música fácilmente. Utilicé Python, CustomTkinter y Pytube para crear esta aplicación, garantizando compatibilidad con varios formatos de audio y video.",
+          },
+          entregai: {
+            title: "Entregai — La comanda de papel se vuelve ruta",
+            desc: "Lo diseñé y construí tras ver de cerca el cuello de botella del reparto: la app fotografía la comanda, GPT-4o Vision extrae cliente, dirección, pago y cambio, y el pedido entra en la jornada del día. Cada salida cierra con total, horario y tarifa; la dirección abre directo en Waze. Flet 0.85, Supabase con RLS por usuario y APK firmado en GitHub Actions.",
           },
           supafit: {
             title: "SupaFit — Entrenamientos que evolucionan contigo",

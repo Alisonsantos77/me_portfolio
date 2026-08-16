@@ -108,6 +108,14 @@ export const projects: Project[] = [
 
   // ============ ADVANCED (recentes primeiro) ============
   {
+    id: "entregai",
+    titleKey: "projects.items.entregai.title",
+    descriptionKey: "projects.items.entregai.desc",
+    level: "advanced",
+    media: { type: "video", src: "/video/entregai.mp4" },
+    isRecent: true,
+  },
+  {
     id: "supafit",
     titleKey: "projects.items.supafit.title",
     descriptionKey: "projects.items.supafit.desc",
