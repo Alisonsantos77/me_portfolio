@@ -23,7 +23,7 @@ export const CarouselProject: React.FC<CarouselProjectProps> = ({ project }) => 
       {/* Mídia: vídeo ou imagem (discriminated union força exatamente um) */}
       <div className="w-full">
         {media.type === "video" ? (
-          <video className="w-full" muted autoPlay controls>
+          <video className="block w-auto max-w-full max-h-[70vh] mx-auto" muted autoPlay controls>
             <source src={media.src} type="video/mp4" />
             Seu navegador não suporta o elemento de vídeo.
           </video>

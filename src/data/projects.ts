@@ -108,6 +108,19 @@ export const projects: Project[] = [
 
   // ============ ADVANCED (recentes primeiro) ============
   {
+    id: "fletube-android",
+    titleKey: "projects.items.fletubeAndroid.title",
+    descriptionKey: "projects.items.fletubeAndroid.desc",
+    level: "advanced",
+    // Mesmo vídeo do site oficial (gravado no APK de produção), vertical 720×1280
+    media: { type: "video", src: "/video/fletube-android.mp4" },
+    links: {
+      // Site oficial, e não o APK direto: lá ficam SHA-256 e certificado
+      download: "https://fletube.alisondev.com.br/",
+    },
+    isRecent: true,
+  },
+  {
     id: "entregai",
     titleKey: "projects.items.entregai.title",
     descriptionKey: "projects.items.entregai.desc",
@@ -148,7 +161,6 @@ export const projects: Project[] = [
     level: "advanced",
     media: { type: "video", src: "/video/fletube.mp4" },
     links: {
-      github: "https://github.com/Alisonsantos77/Fletube",
       linkedin:
         "https://www.linkedin.com/posts/alisonsantosdev_fletube-a-plataforma-de-downloads-inteligente-activity-7278889815947759616-s41a?utm_source=share&utm_medium=member_desktop",
       download:

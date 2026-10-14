@@ -101,6 +101,10 @@ const resources = {
             title: "Fletube — Downloader Inteligente",
             desc: "Desenvolvi uma solução em Python com o Fletube, que facilita o download de vídeos de forma simples e acessível. Utilizando a biblioteca yt-dlp e integração com o Pillow para extração de thumbnails, o Fletube oferece uma experiência prática para usuários que buscam rapidez e eficiência. Ao criar este projeto, o objetivo foi proporcionar uma ferramenta fácil de usar e compartilhar, ideal para quem precisa baixar vídeos de maneira ágil e sem complicação.",
           },
+          fletubeAndroid: {
+            title: "Fletube Android: do link ao arquivo",
+            desc: "O Fletube refeito do zero como app Android publicado. Você cola um link, escolhe formato e qualidade e salva no celular: vídeo em MP4, áudio em M4A ou MP3, item único ou playlist inteira. Python com Flet e yt-dlp, login com Google ou GitHub pelo Supabase Auth, APK assinado e publicado pelo GitHub Actions com SHA-256 e certificado à vista, e atualização pelo próprio app via OTA no Cloudflare R2.",
+          },
           sabermais: {
             title: "SaberMais — Quizzes Interativos com IA",
             desc: "SaberMais é mais do que uma aplicação de quizzes; é uma plataforma interativa desenvolvida com Python, Flet e inteligência artificial, projetada para oferecer uma experiência única de aprendizado. Cada quiz é construído dinamicamente para engajar e desafiar os usuários, promovendo uma nova forma de explorar o conhecimento.",
@@ -274,6 +278,10 @@ const resources = {
             title: "Fletube — Smart Downloader",
             desc: "I developed a Python-based solution called Fletube, designed to simplify video downloads in an easy and accessible way. By leveraging the yt-dlp library and integrating Pillow for thumbnail extraction, Fletube provides a seamless experience for users seeking speed and efficiency. The goal behind this project was to deliver a user-friendly and shareable tool, perfect for those who need to download videos quickly and hassle-free.",
           },
+          fletubeAndroid: {
+            title: "Fletube Android: from link to file",
+            desc: "Fletube rebuilt from scratch as a published Android app. Paste a link, pick format and quality and save it to your phone: MP4 video, M4A or MP3 audio, a single item or a whole playlist. Python with Flet and yt-dlp, Google or GitHub sign-in through Supabase Auth, an APK signed and released by GitHub Actions with its SHA-256 and certificate published, and in-app OTA updates served from Cloudflare R2.",
+          },
           sabermais: {
             title: "SaberMais — Interactive AI Quizzes",
             desc: "SaberMais is more than just a quiz application; it is an interactive platform developed with Python, Flet, and artificial intelligence, designed to provide a unique learning experience. Each quiz is dynamically built to engage and challenge users, promoting a new way to explore knowledge.",
@@ -446,6 +454,10 @@ const resources = {
           fletube: {
             title: "Fletube — Descargador Inteligente",
             desc: "Desarrollé una solución en Python llamada Fletube, diseñada para simplificar las descargas de videos de manera fácil y accesible. Utilizando la biblioteca yt-dlp e integrando Pillow para la extracción de miniaturas, Fletube ofrece una experiencia fluida para usuarios que buscan velocidad y eficiencia. El objetivo detrás de este proyecto fue proporcionar una herramienta fácil de usar y compartir, perfecta para quienes necesitan descargar videos rápidamente y sin complicaciones.",
+          },
+          fletubeAndroid: {
+            title: "Fletube Android: del enlace al archivo",
+            desc: "Fletube rehecho desde cero como app Android publicada. Pegas un enlace, eliges formato y calidad y lo guardas en el móvil: video en MP4, audio en M4A o MP3, un solo elemento o una playlist completa. Python con Flet y yt-dlp, inicio de sesión con Google o GitHub mediante Supabase Auth, APK firmado y publicado por GitHub Actions con SHA-256 y certificado a la vista, y actualizaciones dentro de la app vía OTA en Cloudflare R2.",
           },
           sabermais: {
             title: "SaberMás — Cuestionarios Interactivos con IA",
